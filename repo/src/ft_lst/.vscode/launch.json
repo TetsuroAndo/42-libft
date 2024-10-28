@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/atomboy/42-Cursus/1-circle/libft/repo/src/ft_lst",
+      "program": "/Users/atomboy/42-Cursus/1-circle/libft/repo/src/ft_lst/build/Debug/outDebug"
+    }
+  ]
+}
