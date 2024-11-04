@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 02:55:04 by teando            #+#    #+#             */
-/*   Updated: 2024/10/25 01:47:14 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/01 03:42:40 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*r;
 	size_t	size;
 
-	if (!s1 || !s2)
-		return (NULL);
+	if (!s1)
+		s1 = "";
+	if (!s2)
+		s2 = "";
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	r = (char *)malloc(sizeof(char) * size);
 	if (!r)
