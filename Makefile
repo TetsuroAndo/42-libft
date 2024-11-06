@@ -32,9 +32,16 @@ SRCS 		:= \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
+			ft_isblank.c \
+			ft_iscntrl.c \
 			ft_isdigit.c \
+			ft_isgraph.c \
+			ft_islower.c \
 			ft_isprint.c \
+			ft_ispunct.c \
 			ft_isspace.c \
+			ft_isupper.c \
+			ft_isxdigit.c \
 			ft_tolower.c \
 			ft_toupper.c \
 		) \
@@ -116,8 +123,6 @@ CFLAGS		+= -O2
 endif
 IDFLAGS		:= -I$(INCS_DIR)
 
-.PHONY: all clean fclean re bonus norm test
-
 all: $(NAME) $(NAME_SO)
 
 bonus: $(NAME)
@@ -151,3 +156,5 @@ test: test.c
 	$(CC) -g -fsanitize=address $< -o $@ -I. -Wl,-rpath . -L. -lft -lm
 
 -include $(DEPS)
+
+.PHONY: all clean fclean re bonus norm test
