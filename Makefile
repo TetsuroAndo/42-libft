@@ -18,7 +18,6 @@ LIBFT_H		:= libft.h
 ROOT_DIR	:= .
 INCS_DIR	:= $(ROOT_DIR)/incs
 OUT_DIR		:= $(ROOT_DIR)/out
-INCLUDES	:= -I $(ROOT_DIR)/libft.h -I $(INCS_DIR)
 
 ifeq ($(UNAME_OS), Darwin)
 NAME_SO		:= libft.dylib
