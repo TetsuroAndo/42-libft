@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:37 by teando           ###   ########.fr       */
+/*   Created: 2024/10/20 22:53:15 by teando            #+#    #+#             */
+/*   Updated: 2024/11/07 17:02:13 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_string.h"
 
-# include <stddef.h>
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*last;
+	size_t		len;
 
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-char			*ft_utoa(unsigned int n);
-
-#endif
+	last = NULL;
+	len = ft_strlen(s);
+	s += len;
+	while (len-- + 1 > 0)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s--;
+	}
+	return (NULL);
+}

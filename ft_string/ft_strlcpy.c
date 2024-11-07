@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:37 by teando           ###   ########.fr       */
+/*   Created: 2024/10/20 22:07:50 by teando            #+#    #+#             */
+/*   Updated: 2024/11/07 17:01:41 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_string.h"
+#include <stddef.h>
 
-# include <stddef.h>
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	len;
 
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-char			*ft_utoa(unsigned int n);
-
-#endif
+	len = ft_strlen(src);
+	if (!dstsize)
+		return (len);
+	while (1 < dstsize-- && *src)
+		*(dst++) = *(src++);
+	*dst = '\0';
+	return (len);
+}

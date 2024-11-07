@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:37 by teando           ###   ########.fr       */
+/*   Created: 2024/10/23 06:09:45 by teando            #+#    #+#             */
+/*   Updated: 2024/11/07 16:58:18 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_lst.h"
+#include <stddef.h>
 
-# include <stddef.h>
-
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-char			*ft_utoa(unsigned int n);
-
-#endif
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	if (*lst)
+		ft_lstlast(*lst)->next = new;
+	else
+		*lst = new;
+}

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:37 by teando           ###   ########.fr       */
+/*   Created: 2024/10/23 06:19:31 by teando            #+#    #+#             */
+/*   Updated: 2024/11/07 16:58:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_lst.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-# include <stddef.h>
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*current;
+	t_list	*next_node;
 
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-char			*ft_utoa(unsigned int n);
-
-#endif
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current != NULL)
+	{
+		next_node = current->next;
+		ft_lstdelone(current, del);
+		current = next_node;
+	}
+	*lst = NULL;
+}

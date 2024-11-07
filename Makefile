@@ -18,7 +18,7 @@ LIBFT_H		:= libft.h
 ROOT_DIR	:= .
 INCS_DIR	:= $(ROOT_DIR)/incs
 OUT_DIR		:= $(ROOT_DIR)/out
-INCLUDES	:= -I $(INCS_DIR)
+INCLUDES	:= -I $(ROOT_DIR)/libft.h -I $(INCS_DIR)
 
 ifeq ($(UNAME_OS), Darwin)
 NAME_SO		:= libft.dylib
@@ -46,12 +46,9 @@ SRCS 		:= \
 			ft_toupper.c \
 		) \
 		$(addprefix ft_stdio/, \
-			ft_getc.c \
-			ft_putc.c \
 			ft_putchar_fd.c \
 			ft_putchar.c \
 			ft_putendl_fd.c \
-			ft_putendl.c \
 			ft_putnbr_fd.c \
 			ft_putnbr.c \
 			ft_putstr_fd.c \
@@ -60,11 +57,10 @@ SRCS 		:= \
 			ft_abs.c \
 			ft_atoi.c \
 			ft_atol.c \
-			ft_atof.c \
 			ft_calloc.c \
 			ft_itoa.c \
 			ft_ltoa.c \
-			ft_ftoa.c \
+			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
 			ft_bzero.c \
@@ -89,6 +85,10 @@ SRCS 		:= \
 			ft_strrchr.c \
 			ft_strtrim.c \
 			ft_substr.c \
+		) \
+		$(addprefix ft_utils/, \
+			ft_max.c \
+			ft_min.c \
 		) \
 	)
 OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))

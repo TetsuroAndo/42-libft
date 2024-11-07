@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:37 by teando           ###   ########.fr       */
+/*   Created: 2024/11/07 17:20:24 by teando            #+#    #+#             */
+/*   Updated: 2024/11/07 17:20:26 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_string.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-# include <stddef.h>
+char	*ft_utoa(unsigned int n)
+{
+	char	buffer[11];
+	char	*c;
 
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-char			*ft_utoa(unsigned int n);
-
-#endif
+	c = &buffer[11];
+	*--c = '\0';
+	while (n || !*c)
+	{
+		*--c = n % 10 + '0';
+		n /= 10;
+	}
+	return (ft_strdup(c));
+}
