@@ -16,8 +16,8 @@ CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 LIBFT_H		:= libft.h
 ROOT_DIR	:= .
-INCS_DIR	:= $(ROOT_DIR)/incs
 OUT_DIR		:= $(ROOT_DIR)/out
+INCS_DIR	:= $(ROOT_DIR)/incs
 
 ifeq ($(UNAME_OS), Darwin)
 NAME_SO		:= libft.dylib
@@ -117,12 +117,13 @@ ifeq ($(MAKECMDGOALS), bonus)
 	DEPS += $(BONUS_DEPS)
 endif
 
+IDFLAGS		:= -I$(INCS_DIR)
+
 ifeq ($(DEBUG), 1)
 CFLAGS		+= -g
 else
 CFLAGS		+= -O2
 endif
-IDFLAGS		:= -I$(INCS_DIR)
 
 all: $(NAME) $(NAME_SO)
 
@@ -131,17 +132,20 @@ bonus: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) rc $@ $^
 
-$(NAME_SO): $(OBJS)
-ifeq ($(UNAME_OS), Darwin)
-	$(CC) -shared -Wl,-install_name,@rpath/$@ $^ -o $@
-else
-	$(CC) -shared $^ -o $@
-endif
-
 $(OUT_DIR)/%.o: %.c $(LIBFT_H)
 	@mkdir -p $(@D)
 	$(CC) -c $(CFLAGS) -fPIC -MMD -MP $(IDFLAGS) $< -o $@
 
+so: $(NAME_SO)
+
+$(NAME_SO): $(OBJS)
+ifeq ($(UNAME_OS), Darwin)
+	$(CC) -shared -Wl,-install_name,@rpath/$@ $^ -o $@
+else
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(IDFLAGS)
+	gcc -nostartfiles -shared -o $(NAME_SO) $(OBJS)
+endif
+	
 clean:
 	rm -rf $(OUT_DIR)
 
@@ -150,7 +154,7 @@ fclean: clean
 
 re: fclean all
 
-norm: $(LIBFT_H) $(INCS_DIR) $(SRCS)
+norm: $(LIBFT_H) $(INCS_DIR) $(SRCS) $(BONUS_SRC)
 	@norminette $^
 
 test: test.c

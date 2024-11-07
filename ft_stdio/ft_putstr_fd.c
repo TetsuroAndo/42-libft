@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:22:15 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:00:12 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/08 04:46:09 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
 	while (*s)
 		ft_putchar_fd(*s++, fd);
 }
