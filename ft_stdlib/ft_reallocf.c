@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_reallocf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 04:02:00 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 04:01:07 by teando            #+#    #+#             */
+/*   Updated: 2024/11/08 04:01:27 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "ft_stdlib.h"
+#include <stdlib.h>
 
-# include <stddef.h>
+void	*ft_reallocf(void *ptr, size_t size)
+{
+	void	*new_ptr;
 
-unsigned int	ft_abs(int n);
-int				ft_atoi(const char *str);
-long			ft_atol(const char *nptr);
-void			*ft_calloc(size_t count, size_t size);
-char			*ft_itoa(int n);
-char			*ft_ltoa(long n);
-void			*ft_realloc(void *ptr, size_t size);
-void			*ft_reallocf(void *ptr, size_t size);
-char			*ft_utoa(unsigned int n);
-
-#endif
+	new_ptr = ft_realloc(ptr, size);
+	if (!new_ptr && ptr)
+		free(ptr);
+	return (new_ptr);
+}

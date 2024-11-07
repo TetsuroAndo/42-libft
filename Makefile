@@ -59,6 +59,8 @@ SRCS 		:= \
 			ft_calloc.c \
 			ft_itoa.c \
 			ft_ltoa.c \
+			ft_realloc.c \
+			ft_reallocf.c \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
@@ -141,7 +143,7 @@ $(OUT_DIR)/%.o: %.c $(LIBFT_H)
 	$(CC) -c $(CFLAGS) -fPIC -MMD -MP $(IDFLAGS) $< -o $@
 
 clean:
-	rm -fr $(OUT_DIR)
+	rm -rf $(OUT_DIR)
 
 fclean: clean
 	rm -f $(NAME) $(NAME_SO)
