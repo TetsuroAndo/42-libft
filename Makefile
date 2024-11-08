@@ -49,7 +49,6 @@ SRCS 		:= \
 			ft_putchar.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
-			ft_putnbr.c \
 			ft_putstr_fd.c \
 		) \
 		$(addprefix ft_stdlib/, \
@@ -132,7 +131,7 @@ all: $(NAME) $(NAME_SO)
 bonus: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) rc $@ $^
+	ar rc $@ $^
 
 $(OUT_DIR)/%.o: %.c $(LIBFT_H)
 	@mkdir -p $(@D)
@@ -152,7 +151,7 @@ clean:
 	rm -rf $(OUT_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_SO)
+	rm -f $(NAME) $(NAME_SO) a.out
 
 re: fclean all
 

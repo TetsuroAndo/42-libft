@@ -6,28 +6,26 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:16:18 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:59:45 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/08 20:18:15 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
+#include "ft_stdlib.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	char			buffer[12];
-	unsigned int	num;
+	unsigned int	un;
 	char			*c;
 
-	if (n < 0)
-		num = -n;
-	else
-		num = n;
 	c = &buffer[12];
 	*--c = '\0';
-	while (num || !*c)
+	un = ft_abs(n);
+	while (un || !*c)
 	{
-		*--c = num % 10 + '0';
-		num /= 10;
+		*--c = un % 10 + '0';
+		un /= 10;
 	}
 	if (n < 0)
 		*--c = '-';

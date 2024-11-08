@@ -5,8 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 20:16:25 by teando            #+#    #+#             */
-/*   Updated: 2024/11/04 22:09:09 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 20:25:02 by teando            #+#    #+#             */
+/*   Updated: 2024/11/08 20:44:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stdio.h"
+#include <stdio.h>
+
+int	ft_putc(int c, FILE *stream)
+{
+	return (ft_fputc(c, stream));
+}

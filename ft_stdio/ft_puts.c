@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 21:23:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/04 22:09:21 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 20:28:21 by teando            #+#    #+#             */
+/*   Updated: 2024/11/08 20:40:12 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
-#include <stddef.h>
 #include <stdio.h>
 
-int	ft_putnbr(int n)
+int	ft_puts(const char *s)
 {
-	char			buffer[12];
-	unsigned int	num;
-	char			*c;
-	int				count;
-
-	num = n ^ ((n >> 31) & ((unsigned int)(-n - n)));
-	c = &buffer[12];
-	*--c = '\0';
-	while (num || !*c)
+	if (s == NULL)
 	{
-		*--c = num % 10 + '0';
-		num /= 10;
-	}
-	if (n < 0)
-		*--c = '-';
-	count = 0;
-	while (*c)
-	{
-		if (ft_putchar(*c++) == EOF)
+		if (ft_fputs("(null)\n", stdout) == EOF)
 			return (EOF);
-		count++;
+		return (0);
 	}
-	return (count);
+	if (ft_fputs(s, stdout) == EOF)
+		return (EOF);
+	if (ft_fputc('\n', stdout) == EOF)
+		return (EOF);
+	return (0);
 }

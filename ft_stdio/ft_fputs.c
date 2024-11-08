@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_fputs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 20:21:57 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 21:14:52 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 20:23:10 by teando            #+#    #+#             */
+/*   Updated: 2024/11/08 21:13:16 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stdio.h"
 #include <stdio.h>
-#include <unistd.h>
 
-int	ft_putchar(int c)
+int	ft_fputs(const char *s, FILE *stream)
 {
-	if (write(STDOUT_FILENO, &c, 1) == -1)
-		return (EOF);
-	return ((unsigned char)c);
+	while (*s)
+	{
+		if (ft_fputc(*s, stream) == EOF)
+			return (EOF);
+		s++;
+	}
+	return (0);
 }
