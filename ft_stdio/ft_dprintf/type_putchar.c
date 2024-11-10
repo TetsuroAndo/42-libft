@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   type_putchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 20:21:57 by teando            #+#    #+#             */
-/*   Updated: 2024/11/10 10:35:44 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 21:28:48 by teando            #+#    #+#             */
+/*   Updated: 2024/11/10 10:56:17 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	type_putchar(int fd, int c)
 {
-	if (write(STDOUT_FILENO, &c, 1) == -1)
-		return (EOF);
-	return (c);
+	if (ft_putchar_fd(c, fd) == -1)
+		return (-1);
+	return (1);
 }

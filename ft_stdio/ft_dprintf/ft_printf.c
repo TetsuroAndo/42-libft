@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 20:21:57 by teando            #+#    #+#             */
-/*   Updated: 2024/11/10 10:35:44 by teando           ###   ########.fr       */
+/*   Created: 2024/11/04 19:39:42 by teando            #+#    #+#             */
+/*   Updated: 2024/11/10 10:51:08 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_printf(const char *format, ...)
 {
-	if (write(STDOUT_FILENO, &c, 1) == -1)
-		return (EOF);
-	return (c);
+	va_list	ap;
+	int		cnt;
+
+	va_start(ap, format);
+	cnt = dprintf_format_string(STDOUT_FILENO, format, ap);
+	va_end(ap);
+	return (cnt);
 }

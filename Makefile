@@ -50,6 +50,14 @@ SRCS 		:= \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
+			$(addprefix ft_dprintf/, \
+				ft_dprintf.c \
+				ft_printf.c \
+				type_putbase.c \
+				type_putchar.c \
+				type_putptr.c \
+				type_putstr.c \
+			) \
 		) \
 		$(addprefix ft_stdlib/, \
 			ft_abs.c \

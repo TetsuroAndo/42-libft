@@ -6,13 +6,16 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:10:27 by teando            #+#    #+#             */
-/*   Updated: 2024/10/23 23:04:44 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/10 10:35:08 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(int c, int fd)
 {
-	write(fd, &c, 1);
+	if (write(fd, &c, 1) == -1)
+		return (EOF);
+	return (c);
 }
