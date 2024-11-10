@@ -81,6 +81,7 @@ SRCS 		:= \
 			ft_strchr.c \
 			ft_strdup.c \
 			ft_strdup2.c \
+			ft_strfunc.c \
 			ft_striteri.c \
 			ft_strjoin.c \
 			ft_strjoin2.c \
