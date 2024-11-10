@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:34 by teando            #+#    #+#             */
-/*   Updated: 2024/11/10 11:09:16 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/10 14:30:57 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 // int		ft_fputc(int c, FILE *stream);
 // int		ft_fputs(const char *s, FILE *stream);
+// int		ft_getc(FILE *stream);
 // int		ft_putc(int c, FILE *stream);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putchar(int c);
