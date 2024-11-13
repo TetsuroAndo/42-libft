@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memswap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 03:46:29 by teando            #+#    #+#             */
-/*   Updated: 2024/11/13 12:18:57 by teando           ###   ########.fr       */
+/*   Created: 2024/11/13 12:14:25 by teando            #+#    #+#             */
+/*   Updated: 2024/11/13 12:21:58 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include <stddef.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	ft_memswap(void *m1, void *m2, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	unsigned char	temp;
+	size_t			i;
 
-	if (!dst && !src)
-		return (NULL);
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d < s)
-		ft_memcpy(dst, src, n);
-	else
+	i = 0;
+	while (i < n)
 	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
+		temp = ((unsigned char *)m1)[i];
+		((unsigned char *)m1)[i] = ((unsigned char *)m2)[i];
+		((unsigned char *)m2)[i] = temp;
+		i++;
 	}
-	return (dst);
 }
