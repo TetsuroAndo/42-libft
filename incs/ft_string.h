@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/11/11 01:59:10 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:22:30 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t n);
+void	ft_memswap(void *m1, void *m2, size_t n);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
