@@ -77,6 +77,7 @@ SRCS 		:= \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_memswap.c \
 			ft_split.c \
 			ft_strchr.c \
 			ft_strdup.c \
