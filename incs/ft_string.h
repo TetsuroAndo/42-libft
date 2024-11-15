@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/11/13 12:22:30 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/16 05:22:31 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t n);
 void	ft_memswap(void *m1, void *m2, size_t n);
 
+char	*ft_strpbrk(const char *s, const char *accept);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
+size_t	ft_strcspn(const char *s, const char *reject);
 char	*ft_strdup(const char *s1);
 char	*ft_strdup2(const char *s1);
 int		ft_strfunc(const char *s, int (*f)(int));
@@ -40,6 +42,8 @@ char	*ft_strndup(const char *s1, size_t n);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
+char	*ft_strrev(char *str);
+size_t	ft_strspn(const char *s, const char *accept);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
