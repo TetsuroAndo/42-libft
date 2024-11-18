@@ -78,7 +78,6 @@ SRCS 		:= \
 			ft_memmove.c \
 			ft_memset.c \
 			ft_memswap.c \
-			ft_pbrk.c \
 			ft_split.c \
 			ft_strchr.c \
 			ft_strcspn.c \
@@ -96,6 +95,7 @@ SRCS 		:= \
 			ft_strndup.c \
 			ft_strnlen.c \
 			ft_strnstr.c \
+			ft_strpbrk.c \
 			ft_strrchr.c \
 			ft_strrev.c \
 			ft_strspn.c \
