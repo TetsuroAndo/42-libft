@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reallocf.c                                      :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 04:01:07 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 04:01:27 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 03:51:06 by teando            #+#    #+#             */
+/*   Updated: 2024/11/19 00:14:15 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
+#include "ft_string.h"
+#include <stddef.h>
 #include <stdlib.h>
 
-void	*ft_reallocf(void *ptr, size_t size)
+void	*ft_orealloc(void *ptr, size_t oldsize, size_t size)
 {
-	void	*new_ptr;
+	void	*newptr;
 
-	new_ptr = ft_realloc(ptr, size);
-	if (!new_ptr && ptr)
-		free(ptr);
-	return (new_ptr);
+	if (!ptr)
+		return (malloc(size));
+	if (!size)
+		return (free(ptr), NULL);
+	newptr = malloc(size);
+	if (!newptr)
+		return (NULL);
+	if (oldsize < size)
+		ft_memcpy(newptr, ptr, oldsize);
+	else
+		ft_memcpy(newptr, ptr, size);
+	free(ptr);
+	return (newptr);
 }
