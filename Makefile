@@ -66,8 +66,8 @@ SRCS 		:= \
 			ft_calloc.c \
 			ft_itoa.c \
 			ft_ltoa.c \
-			ft_realloc.c \
-			ft_reallocf.c \
+			ft_orealloc.c \
+			ft_oreallocf.c \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
@@ -105,6 +105,9 @@ SRCS 		:= \
 		$(addprefix ft_utils/, \
 			ft_max.c \
 			ft_min.c \
+		) \
+		$(addprefix get_next_line/, \
+			get_next_line.c \
 		) \
 	)
 OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))

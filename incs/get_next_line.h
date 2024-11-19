@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 02:18:14 by teando            #+#    #+#             */
-/*   Updated: 2024/11/19 18:12:32 by teando           ###   ########.fr       */
+/*   Created: 2024/11/19 18:11:01 by teando            #+#    #+#             */
+/*   Updated: 2024/11/19 18:14:11 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "./incs/ft_ctype.h"
-# include "./incs/ft_lst.h"
-# include "./incs/ft_stdio.h"
-# include "./incs/ft_stdlib.h"
-# include "./incs/ft_string.h"
-# include "./incs/ft_utils.h"
-# include "./incs/get_next_line.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 1024
+# endif
+
+# include "ft_string.h"
+# include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
 
 #endif
