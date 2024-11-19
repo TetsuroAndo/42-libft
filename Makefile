@@ -66,8 +66,8 @@ SRCS 		:= \
 			ft_calloc.c \
 			ft_itoa.c \
 			ft_ltoa.c \
-			ft_realloc.c \
-			ft_reallocf.c \
+			ft_orealloc.c \
+			ft_oreallocf.c \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
@@ -77,10 +77,13 @@ SRCS 		:= \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_memswap.c \
 			ft_split.c \
 			ft_strchr.c \
+			ft_strcspn.c \
 			ft_strdup.c \
 			ft_strdup2.c \
+			ft_strfunc.c \
 			ft_striteri.c \
 			ft_strjoin.c \
 			ft_strjoin2.c \
@@ -92,13 +95,19 @@ SRCS 		:= \
 			ft_strndup.c \
 			ft_strnlen.c \
 			ft_strnstr.c \
+			ft_strpbrk.c \
 			ft_strrchr.c \
+			ft_strrev.c \
+			ft_strspn.c \
 			ft_strtrim.c \
 			ft_substr.c \
 		) \
 		$(addprefix ft_utils/, \
 			ft_max.c \
 			ft_min.c \
+		) \
+		$(addprefix get_next_line/, \
+			get_next_line.c \
 		) \
 	)
 OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))

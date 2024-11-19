@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putc.c                                          :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:25:02 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 20:44:35 by teando           ###   ########.fr       */
+/*   Created: 2024/11/16 05:27:16 by teando            #+#    #+#             */
+/*   Updated: 2024/11/16 05:27:17 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio.h"
-#include <stdio.h>
+#include "ft_string.h"
+#include <stddef.h>
 
-int	ft_putc(int c, FILE *stream)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	return (ft_fputc(c, stream));
+	size_t	i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (ft_strchr(reject, s[i]))
+			break ;
+	}
+	return (i);
 }

@@ -6,12 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:46:29 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 04:12:44 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:18:57 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
-#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {

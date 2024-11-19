@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puts.c                                          :+:      :+:    :+:   */
+/*   ft_strfunc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:28:21 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 20:40:12 by teando           ###   ########.fr       */
+/*   Created: 2024/11/11 01:43:23 by teando            #+#    #+#             */
+/*   Updated: 2024/11/11 01:56:50 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio.h"
-#include <stdio.h>
-
-int	ft_puts(const char *s)
+int	ft_strfunc(const char *s, int (*f)(int))
 {
-	if (s == NULL)
-	{
-		if (ft_fputs("(null)\n", stdout) == EOF)
-			return (EOF);
+	if (!s || !f)
 		return (0);
+	while (*s)
+	{
+		if (!f(*s))
+			return (0);
+		s++;
 	}
-	if (ft_fputs(s, stdout) == EOF)
-		return (EOF);
-	if (ft_fputc('\n', stdout) == EOF)
-		return (EOF);
-	return (0);
+	return (1);
 }

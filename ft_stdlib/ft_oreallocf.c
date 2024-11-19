@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_oreallocf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 22:53:15 by teando            #+#    #+#             */
-/*   Updated: 2024/11/11 23:42:40 by teando           ###   ########.fr       */
+/*   Created: 2024/11/08 04:01:07 by teando            #+#    #+#             */
+/*   Updated: 2024/11/19 00:15:30 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_stdlib.h"
+#include <stdlib.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_oreallocf(void *ptr, size_t oldsize, size_t size)
 {
-	size_t	len;
+	void	*new_ptr;
 
-	len = ft_strlen(s);
-	s += len;
-	while (len-- + 1 > 0)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s--;
-	}
-	return (NULL);
+	new_ptr = ft_orealloc(ptr, oldsize, size);
+	if (!new_ptr && ptr)
+		free(ptr);
+	return (new_ptr);
 }

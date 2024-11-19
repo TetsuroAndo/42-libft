@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fputc.c                                         :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:23:08 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 20:41:54 by teando           ###   ########.fr       */
+/*   Created: 2024/11/16 05:27:14 by teando            #+#    #+#             */
+/*   Updated: 2024/11/16 05:27:15 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdio.h"
-#include <stdio.h>
+#include "ft_string.h"
+#include <stddef.h>
 
-int	ft_fputc(int c, FILE *stream)
+size_t	ft_strspn(const char *s, const char *accept)
 {
-	unsigned char	uc;
+	size_t	i;
 
-	if (stream == NULL)
-		return (EOF);
-	uc = (unsigned char)c;
-	if (fwrite(&uc, sizeof(char), 1, stream) != 1)
-		return (EOF);
-	return ((int)uc);
+	i = -1;
+	while (s[++i])
+	{
+		if (!ft_strchr(accept, s[i]))
+			break ;
+	}
+	return (i);
 }
