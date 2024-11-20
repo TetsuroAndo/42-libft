@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:10:43 by teando            #+#    #+#             */
-/*   Updated: 2024/11/19 18:10:48 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 08:51:51 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static ssize_t	read_buf_to_newline(char **r, char **newline, char **temp,
 			return (free(buf), size);
 		buf[size] = '\0';
 		read_total += size;
-		*temp = ft_strjoin(*r, buf);
+		*temp = ft_strjoin2(*r, buf);
 		if (!*temp)
 			return (free(buf), -1);
 		free(*r);
