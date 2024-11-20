@@ -71,7 +71,7 @@ SRCS 		:= \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
-			ft_bzero.c \
+			ft_count_words.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
@@ -101,6 +101,11 @@ SRCS 		:= \
 			ft_strspn.c \
 			ft_strtrim.c \
 			ft_substr.c \
+		) \
+		$(addprefix ft_strings/, \
+			ft_bzero.c \
+			ft_strcasecmp.c\
+			ft_strncasecmp.c\
 		) \
 		$(addprefix ft_utils/, \
 			ft_max.c \

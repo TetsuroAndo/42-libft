@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strcasecmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 14:23:06 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 03:15:33 by teando           ###   ########.fr       */
+/*   Created: 2024/11/21 03:26:20 by teando            #+#    #+#             */
+/*   Updated: 2024/11/21 03:28:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strings.h"
-#include <stddef.h>
-#include <stdlib.h>
+#include "ft_ctype.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_strcasecmp(const char *s1, const char *s2)
 {
-	void	*ptr;
-	size_t	all_size;
+	unsigned char	c1;
+	unsigned char	c2;
 
-	all_size = count * size;
-	if (size && all_size / size != count)
-		return (NULL);
-	if (!count || !size)
-		return (malloc(0));
-	ptr = malloc(all_size);
-	if (ptr)
-		ft_bzero(ptr, all_size);
-	return (ptr);
+	while (1)
+	{
+		c1 = (unsigned char)ft_tolower((unsigned char)*s1++);
+		c2 = (unsigned char)ft_tolower((unsigned char)*s2++);
+		if (c1 != c2 || c1 == '\0')
+			return (c1 - c2);
+	}
+	return (0);
 }

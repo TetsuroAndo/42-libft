@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 23:34:11 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:00:38 by teando           ###   ########.fr       */
+/*   Created: 2024/11/21 03:10:01 by teando            #+#    #+#             */
+/*   Updated: 2024/11/21 03:13:25 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_count_words(char const *s, char c)
 {
-	ft_memset(s, 0, n);
+	size_t	cnt;
+
+	cnt = 0;
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (!*s)
+			break ;
+		cnt++;
+		while (*s && *s != c)
+			s++;
+	}
+	return (cnt);
 }

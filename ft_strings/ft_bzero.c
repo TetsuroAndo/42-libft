@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 14:23:06 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 03:15:33 by teando           ###   ########.fr       */
+/*   Created: 2024/10/19 23:34:11 by teando            #+#    #+#             */
+/*   Updated: 2024/11/21 03:28:45 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strings.h"
-#include <stddef.h>
-#include <stdlib.h>
+#include "ft_string.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_bzero(void *s, size_t n)
 {
-	void	*ptr;
-	size_t	all_size;
-
-	all_size = count * size;
-	if (size && all_size / size != count)
-		return (NULL);
-	if (!count || !size)
-		return (malloc(0));
-	ptr = malloc(all_size);
-	if (ptr)
-		ft_bzero(ptr, all_size);
-	return (ptr);
+	ft_memset(s, 0, n);
 }
