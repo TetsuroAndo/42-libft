@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:10:43 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 08:51:51 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 14:36:05 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*get_next_line(int fd)
 	if (read_size == -1 && saved[fd] != r)
 		free(saved[fd]);
 	if (read_size == -1 || (r && !*r))
-		return (free(r), NULL);
+		return (NULL);
 	if (read_size == 0)
 		saved[fd] = NULL;
 	if (newline)
