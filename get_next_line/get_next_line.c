@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:10:43 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 14:36:05 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 15:17:40 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ char	*get_next_line(int fd)
 	char		*r;
 	ssize_t		read_size;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= FD_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
 		return (NULL);
 	r = saved[fd];
 	newline = NULL;
 	read_size = read_buf_to_newline(&r, &newline, &temp, fd);
 	if (read_size == -1 && saved[fd] != r)
-		free(saved[fd]);
+		return (free(saved[fd]), free(r), NULL);
 	if (read_size == -1 || (r && !*r))
 		return (NULL);
 	if (read_size == 0)
