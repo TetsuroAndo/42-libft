@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:07:27 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 03:16:38 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 12:48:27 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	**ft_nsplit(const char *s, char c, size_t len)
 		*r = (char *)s;
 		while (*s && *s != c)
 			s++;
-		*r = ft_substr(*r, 0, s - *r);
+		*r = ft_strndup(*r, s - *r);
 		if (!*r++)
 		{
 			while (r_head <= r - 1)
