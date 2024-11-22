@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:37 by teando            #+#    #+#             */
-/*   Updated: 2024/11/19 00:15:52 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/22 19:45:39 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char			*ft_itoa(int n);
 char			*ft_ltoa(long n);
 void			*ft_orealloc(void *ptr, size_t oldsize, size_t size);
 void			*ft_oreallocf(void *ptr, size_t oldsize, size_t size);
+long			ft_strtol(const char *nptr, char **endptr, int base);
+long long		ft_strtoll(const char *nptr, char **endptr, int base);
 char			*ft_utoa(unsigned int n);
 
 #endif

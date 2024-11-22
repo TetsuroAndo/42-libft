@@ -68,6 +68,8 @@ SRCS 		:= \
 			ft_ltoa.c \
 			ft_orealloc.c \
 			ft_oreallocf.c \
+			ft_strtol.c \
+			ft_strtoll.c \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
