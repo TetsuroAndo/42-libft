@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:31:44 by teando            #+#    #+#             */
-/*   Updated: 2024/11/22 19:44:53 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/22 21:38:25 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,19 @@
 #include <limits.h>
 #include <stddef.h>
 
-// static int	ft_isspace(int c);
-// static int	ft_toupper(int c);
-// static char	*ft_strchr(const char *s, int c);
+// static int			ft_isspace(int c);
+// static int			ft_toupper(int c);
+// static char			*ft_strchr(const char *s, int c);
 
-static int	parse_sign(const char **str)
+static int	parse_base_and_sign(const char **str, int base, int *sign)
 {
-	int	sign;
-
-	sign = 1;
+	*sign = 1;
 	if (**str == '-' || **str == '+')
 	{
 		if (**str == '-')
-			sign = -1;
+			*sign = -1;
 		(*str)++;
 	}
-	return (sign);
-}
-
-static int	determine_base(const char **str, int base)
-{
 	if (base == 0)
 	{
 		if (**str == '0')
@@ -50,7 +43,7 @@ static int	determine_base(const char **str, int base)
 		}
 		return (10);
 	}
-	else if (base == 16 && **str == '0' && (*(*str + 1) == 'x' || *(*str
+	if (base == 16 && **str == '0' && (*(*str + 1) == 'x' || *(*str
 				+ 1) == 'X'))
 		*str += 2;
 	return (base);
@@ -67,6 +60,15 @@ static int	convert_digit(char c, int base)
 	return (-1);
 }
 
+static void	handle_overflow(const char **str, int base,
+		unsigned long long *result, int sign)
+{
+	errno = ERANGE;
+	*result = (unsigned long long)LLONG_MAX + ((1 - sign) >> 1);
+	while (convert_digit(**str, base) >= 0)
+		(*str)++;
+}
+
 static long long	process_digits(const char **str, int base, int sign,
 		char **endptr)
 {
@@ -79,14 +81,14 @@ static long long	process_digits(const char **str, int base, int sign,
 	cutoff = (unsigned long long)LLONG_MAX + ((1 - sign) >> 1);
 	cutlim = cutoff % base;
 	cutoff /= base;
-	while ((digit = convert_digit(**str, base)) >= 0)
+	while (1)
 	{
+		digit = convert_digit(**str, base);
+		if (digit < 0)
+			break ;
 		if (result > cutoff || (result == cutoff && digit > cutlim))
 		{
-			errno = ERANGE;
-			result = (unsigned long long)LLONG_MAX + ((1 - sign) >> 1);
-			while (convert_digit(**str, base) >= 0)
-				(*str)++;
+			handle_overflow(str, base, &result, sign);
 			break ;
 		}
 		result = result * base + digit;
@@ -113,8 +115,7 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 	while (ft_isspace(*nptr))
 		nptr++;
 	str = nptr;
-	sign = parse_sign(&str);
-	base = determine_base(&str, base);
+	base = parse_base_and_sign(&str, base, &sign);
 	result = process_digits(&str, base, sign, endptr);
 	if (str == nptr)
 	{
@@ -162,26 +163,7 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 // 	}
 // 	return (0);
 // }
-// // void	test_case(const char *str, int base, const char *description)
-// // {
-// // 	char *end_std, *end_ft;
-// // 	long result_std, result_ft;
-// // 	int errno_std, errno_ft;
-// // 	errno = 0;
-// // 	result_std = strtoll(str, &end_std, base);
-// // 	errno_std = errno;
-// // 	errno = 0;
-// // 	result_ft = ft_strtoll(str, &end_ft, base);
-// // 	errno_ft = errno;
-// // 	printf("テストケース: %s\n", description);
-// // 	printf("入力: \"%s\", ベース: %d\n", str, base);
-// // 	printf("strtoll結果: %ld, エンドポインタ: %td, errno: %d\n", result_std, end_std
-// // 		- str, errno_std);
-// // 	printf("ft_strtoll結果: %ld, エンドポインタ: %td, errno: %d\n", result_ft, end_ft
-// // 		- str, errno_ft);
-// // 	printf("一致: %s\n\n", (result_std == result_ft && end_std == end_ft
-// // 			&& errno_std == errno_ft) ? "はい" : "いいえ");
-// // }
+
 // int	main(void)
 // {
 // 	int	ret;
@@ -380,3 +362,24 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 // 		return ((char *)s);
 // 	return (NULL);
 // }
+
+// // void	test_case(const char *str, int base, const char *description)
+// // {
+// // 	char *end_std, *end_ft;
+// // 	long result_std, result_ft;
+// // 	int errno_std, errno_ft;
+// // 	errno = 0;
+// // 	result_std = strtoll(str, &end_std, base);
+// // 	errno_std = errno;
+// // 	errno = 0;
+// // 	result_ft = ft_strtoll(str, &end_ft, base);
+// // 	errno_ft = errno;
+// // 	printf("テストケース: %s\n", description);
+// // 	printf("入力: \"%s\", ベース: %d\n", str, base);
+// // 	printf("strtoll結果: %ld, エンドポインタ: %td, errno: %d\n", result_std, end_std
+// // 		- str, errno_std);
+// // 	printf("ft_strtoll結果: %ld, エンドポインタ: %td, errno: %d\n", result_ft, end_ft
+// // 		- str, errno_ft);
+// // 	printf("一致: %s\n\n", (result_std == result_ft && end_std == end_ft
+// // 			&& errno_std == errno_ft) ? "はい" : "いいえ");
+// // }
