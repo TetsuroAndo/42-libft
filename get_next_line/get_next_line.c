@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:10:43 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 15:17:40 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:17:32 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static ssize_t	read_buf_to_newline(char **r, char **newline, char **temp,
 
 char	*get_next_line(int fd)
 {
-	static char	*saved[FD_MAX];
+	static char	*saved;
 	char		*newline;
 	char		*temp;
 	char		*r;
@@ -52,19 +52,19 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
 		return (NULL);
-	r = saved[fd];
+	r = saved;
 	newline = NULL;
 	read_size = read_buf_to_newline(&r, &newline, &temp, fd);
-	if (read_size == -1 && saved[fd] != r)
-		return (free(saved[fd]), free(r), NULL);
+	if (read_size == -1 && saved != r)
+		return (free(saved), free(r), NULL);
 	if (read_size == -1 || (r && !*r))
 		return (NULL);
 	if (read_size == 0)
-		saved[fd] = NULL;
+		saved = NULL;
 	if (newline)
 	{
-		saved[fd] = ft_strdup(newline + 1);
-		if (!saved[fd])
+		saved = ft_strdup(newline + 1);
+		if (!saved)
 			return (free(r), NULL);
 		r[newline - r + 1] = '\0';
 	}
