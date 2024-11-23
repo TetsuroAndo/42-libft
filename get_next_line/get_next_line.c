@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:10:43 by teando            #+#    #+#             */
-/*   Updated: 2024/11/23 15:17:32 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:18:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*get_next_line(int fd)
 	char		*r;
 	ssize_t		read_size;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	r = saved;
 	newline = NULL;
