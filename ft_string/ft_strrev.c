@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 05:27:11 by teando            #+#    #+#             */
-/*   Updated: 2024/11/16 05:27:12 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:21:10 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 
 char	*ft_strrev(char *str)
 {
-	int		i;
-	int		len;
-	char	tmp;
+	char			*start;
+	char			*end;
+	char			temp;
+	const size_t	len = ft_strlen(str);
 
-	len = ft_strlen(str);
-	i = -1;
-	while (++i < len / 2)
+	start = str;
+	end = str + len;
+	while (start < --end)
 	{
-		tmp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = tmp;
+		temp = *start;
+		*start = *end;
+		*end = temp;
+		++start;
 	}
 	return (str);
 }
