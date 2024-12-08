@@ -6,12 +6,14 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:39:55 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 05:55:48 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 06:07:45 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_UTILS_H
 # define FT_UTILS_H
+
+# include <stddef.h>
 
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
