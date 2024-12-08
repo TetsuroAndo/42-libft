@@ -6,12 +6,26 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 05:53:45 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 05:56:00 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 07:13:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_utils.h"
 #include <stddef.h>
+
+static void	qsort_swap(void *x, void *y, size_t size)
+{
+	size_t	i;
+
+	if (x == y)
+		return ;
+	i = 0;
+	while (i < size)
+	{
+		ft_swap(&x[i], &y[i]);
+		i++;
+	}
+}
 
 static void	*median_of_three(char *a, char *b, char *c,
 		int (*compar)(const void *, const void *))
@@ -52,11 +66,11 @@ static size_t	part_loop(char *base, size_t nmemb, size_t size,
 			j--;
 		if (i >= j)
 			break ;
-		ft_nswap(base + i * size, base + j * size, size);
+		qsort_swap(base + i * size, base + j * size, size);
 		i++;
 		j--;
 	}
-	ft_nswap(base, base + j * size, size);
+	qsort_swap(base, base + j * size, size);
 	return (j);
 }
 
@@ -67,28 +81,22 @@ static size_t	partition(char *base, size_t nmemb, size_t size,
 
 	pivot = median_of_three(base, base + (nmemb / 2) * size, base + (nmemb - 1)
 			* size, compar);
-	ft_nswap(base, pivot, size);
+	qsort_swap(base, pivot, size);
 	pivot = base;
 	return (part_loop(base, nmemb, size, compar, pivot));
-}
-
-static void	ft_qsort_internal(char *base, size_t nmemb, size_t size,
-		int (*compar)(const void *, const void *))
-{
-	size_t	p;
-
-	if (nmemb <= 1)
-		return ;
-	p = partition(base, nmemb, size, compar);
-	if (p > 0)
-		ft_qsort_internal(base, p, size, compar);
-	ft_qsort_internal(base + (p + 1) * size, nmemb - p - 1, size, compar);
 }
 
 void	ft_qsort(void *base, size_t nmemb, size_t size,
 		int (*compar)(const void *, const void *))
 {
+	size_t	p;
+	char	*arr;
+
 	if (nmemb <= 1 || size == 0)
 		return ;
-	ft_qsort_internal((char *)base, nmemb, size, compar);
+	arr = (char *)base;
+	p = partition(arr, nmemb, size, compar);
+	if (p > 0)
+		ft_qsort(arr, p, size, compar);
+	ft_qsort(arr + (p + 1) * size, nmemb - p - 1, size, compar);
 }

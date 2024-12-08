@@ -6,11 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 05:51:10 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 05:52:30 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 07:02:01 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_nswap(char *a, char *b)
+void	ft_swap(char *a, char *b)
 {
 	char	tmp;
 

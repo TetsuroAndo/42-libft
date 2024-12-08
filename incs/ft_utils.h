@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:39:55 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 06:07:45 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/09 06:53:21 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
-void	ft_nswap(char *a, char *b, size_t size);
 void	ft_swap(char *a, char *b);
 
 #endif

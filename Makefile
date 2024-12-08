@@ -113,7 +113,6 @@ SRCS 		:= \
 		$(addprefix ft_utils/, \
 			ft_max.c \
 			ft_min.c \
-			ft_nswap.c \
 			ft_swap.c \
 		) \
 		$(addprefix get_next_line/, \
