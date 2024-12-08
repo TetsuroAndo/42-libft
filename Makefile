@@ -68,6 +68,7 @@ SRCS 		:= \
 			ft_ltoa.c \
 			ft_orealloc.c \
 			ft_oreallocf.c \
+			ft_qsort.c \
 			ft_strtol.c \
 			ft_strtoll.c \
 			ft_utoa.c \
@@ -112,6 +113,8 @@ SRCS 		:= \
 		$(addprefix ft_utils/, \
 			ft_max.c \
 			ft_min.c \
+			ft_nswap.c \
+			ft_swap.c \
 		) \
 		$(addprefix get_next_line/, \
 			get_next_line.c \
