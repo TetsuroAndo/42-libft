@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 07:34:37 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 07:34:38 by teando           ###   ########.fr       */
+/*   Created: 2024/12/09 05:53:45 by teando            #+#    #+#             */
+/*   Updated: 2024/12/09 08:59:44 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 static void	qsort_swap(void *x, void *y, size_t size)
 {
-	size_t			i;
-	unsigned char	*px;
-	unsigned char	*py;
 	unsigned char	temp;
+	unsigned char	*a;
+	unsigned char	*b;
+	size_t			i;
 
+	a = (unsigned char *)x;
+	b = (unsigned char *)y;
 	if (x == y)
 		return ;
-	px = (unsigned char *)x;
-	py = (unsigned char *)y;
 	i = 0;
 	while (i < size)
 	{
-		temp = px[i];
-		px[i] = py[i];
-		py[i] = temp;
+		temp = a[i];
+		a[i] = b[i];
+		b[i] = temp;
 		i++;
 	}
 }
@@ -37,20 +37,20 @@ static void	qsort_swap(void *x, void *y, size_t size)
 static void	*median_of_three(char *a, char *b, char *c,
 		int (*compar)(const void *, const void *))
 {
-	if (compar((const void *)a, (const void *)b) < 0)
+	if (compar(a, b) < 0)
 	{
-		if (compar((const void *)b, (const void *)c) < 0)
+		if (compar(b, c) < 0)
 			return (b);
-		else if (compar((const void *)a, (const void *)c) < 0)
+		else if (compar(a, c) < 0)
 			return (c);
 		else
 			return (a);
 	}
 	else
 	{
-		if (compar((const void *)b, (const void *)c) > 0)
+		if (compar(b, c) > 0)
 			return (b);
-		else if (compar((const void *)a, (const void *)c) < 0)
+		else if (compar(a, c) < 0)
 			return (a);
 		else
 			return (c);
@@ -67,11 +67,9 @@ static size_t	part_loop(char *base, size_t nmemb, size_t size,
 	j = nmemb - 1;
 	while (1)
 	{
-		while (i < nmemb && compar((const void *)(base + i * size),
-				(const void *)pivot) < 0)
+		while (i < nmemb && compar(base + i * size, pivot) < 0)
 			i++;
-		while (j > 0 && compar((const void *)(base + j * size),
-				(const void *)pivot) > 0)
+		while (j > 0 && compar(base + j * size, pivot) > 0)
 			j--;
 		if (i >= j)
 			break ;
@@ -86,15 +84,13 @@ static size_t	part_loop(char *base, size_t nmemb, size_t size,
 static size_t	partition(char *base, size_t nmemb, size_t size,
 		int (*compar)(const void *, const void *))
 {
-	void	*pivot;
-	size_t	p;
+	char	*pivot;
 
 	pivot = median_of_three(base, base + (nmemb / 2) * size, base + (nmemb - 1)
 			* size, compar);
 	qsort_swap(base, pivot, size);
-	pivot = (void *)base;
-	p = part_loop(base, nmemb, size, compar, (char *)pivot);
-	return (p);
+	pivot = base;
+	return (part_loop(base, nmemb, size, compar, pivot));
 }
 
 void	ft_qsort(void *base, size_t nmemb, size_t size,
