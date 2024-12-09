@@ -152,7 +152,7 @@ else
 CFLAGS		+= -O2
 endif
 
-all: $(NAME) $(NAME_SO)
+all: $(NAME)
 
 bonus: $(NAME)
 
