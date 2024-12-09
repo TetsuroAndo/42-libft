@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 05:51:10 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 07:02:01 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/10 05:32:28 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_swap(char *a, char *b)
 	if (a == b)
 		return ;
 	tmp = *a;
-	*a++ = *b;
-	*b++ = tmp;
+	*a = *b;
+	*b = tmp;
 }
