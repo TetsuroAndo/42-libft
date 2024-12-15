@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:18:14 by teando            #+#    #+#             */
-/*   Updated: 2024/11/19 18:12:32 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 03:15:20 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "./incs/ft_stdio.h"
 # include "./incs/ft_stdlib.h"
 # include "./incs/ft_string.h"
+# include "./incs/ft_strings.h"
 # include "./incs/ft_utils.h"
 # include "./incs/get_next_line.h"
 

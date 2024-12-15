@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 05:27:11 by teando            #+#    #+#             */
-/*   Updated: 2024/12/06 17:21:10 by teando           ###   ########.fr       */
+/*   Created: 2024/12/09 05:51:10 by teando            #+#    #+#             */
+/*   Updated: 2024/12/10 05:32:28 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
-#include <stddef.h>
-
-char	*ft_strrev(char *str)
+void	ft_swap(char *a, char *b)
 {
-	char			*start;
-	char			*end;
-	char			temp;
-	const size_t	len = ft_strlen(str);
+	char	tmp;
 
-	start = str;
-	end = str + len;
-	while (start < --end)
-	{
-		temp = *start;
-		*start = *end;
-		*end = temp;
-		++start;
-	}
-	return (str);
+	if (a == b)
+		return ;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

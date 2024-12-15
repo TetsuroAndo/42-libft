@@ -68,10 +68,13 @@ SRCS 		:= \
 			ft_ltoa.c \
 			ft_orealloc.c \
 			ft_oreallocf.c \
+			ft_qsort.c \
+			ft_strtol.c \
+			ft_strtoll.c \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
-			ft_bzero.c \
+			ft_count_words.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
@@ -102,9 +105,15 @@ SRCS 		:= \
 			ft_strtrim.c \
 			ft_substr.c \
 		) \
+		$(addprefix ft_strings/, \
+			ft_bzero.c \
+			ft_strcasecmp.c\
+			ft_strncasecmp.c\
+		) \
 		$(addprefix ft_utils/, \
 			ft_max.c \
 			ft_min.c \
+			ft_swap.c \
 		) \
 		$(addprefix get_next_line/, \
 			get_next_line.c \
@@ -143,7 +152,7 @@ else
 CFLAGS		+= -O2
 endif
 
-all: $(NAME) $(NAME_SO)
+all: $(NAME)
 
 bonus: $(NAME)
 

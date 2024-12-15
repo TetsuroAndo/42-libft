@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_strcasecmp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 05:27:11 by teando            #+#    #+#             */
-/*   Updated: 2024/12/06 17:21:10 by teando           ###   ########.fr       */
+/*   Created: 2024/11/21 03:26:20 by teando            #+#    #+#             */
+/*   Updated: 2024/11/21 03:28:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
-#include <stddef.h>
+#include "ft_ctype.h"
 
-char	*ft_strrev(char *str)
+int	ft_strcasecmp(const char *s1, const char *s2)
 {
-	char			*start;
-	char			*end;
-	char			temp;
-	const size_t	len = ft_strlen(str);
+	unsigned char	c1;
+	unsigned char	c2;
 
-	start = str;
-	end = str + len;
-	while (start < --end)
+	while (1)
 	{
-		temp = *start;
-		*start = *end;
-		*end = temp;
-		++start;
+		c1 = (unsigned char)ft_tolower((unsigned char)*s1++);
+		c2 = (unsigned char)ft_tolower((unsigned char)*s2++);
+		if (c1 != c2 || c1 == '\0')
+			return (c1 - c2);
 	}
-	return (str);
+	return (0);
 }

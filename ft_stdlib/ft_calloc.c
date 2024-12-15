@@ -6,11 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:23:06 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:31:29 by teando           ###   ########.fr       */
+/*   Updated: 2024/11/21 03:15:33 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_strings.h"
 #include <stddef.h>
 #include <stdlib.h>
 

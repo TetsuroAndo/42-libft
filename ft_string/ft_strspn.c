@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 05:27:14 by teando            #+#    #+#             */
-/*   Updated: 2024/11/16 05:27:15 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:13:41 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ size_t	ft_strspn(const char *s, const char *accept)
 {
 	size_t	i;
 
-	i = -1;
-	while (s[++i])
-	{
-		if (!ft_strchr(accept, s[i]))
-			break ;
-	}
+	i = 0;
+	while (!ft_strchr(accept, s[i]))
+		++i;
 	return (i);
 }
