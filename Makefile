@@ -27,6 +27,16 @@ endif
 
 SRCS 		:= \
 	$(addprefix $(ROOT_DIR)/, \
+		$(addprefix ft_btree/, \
+			ft_btree_apply_by_level.c \
+			ft_btree_apply_infix.c \
+			ft_btree_apply_prefix.c \
+			ft_btree_apply_suffix.c \
+			ft_btree_create_node.c \
+			ft_btree_insert_data.c \
+			ft_btree_level_count.c \
+			ft_btree_search_item.c \
+		) \
 		$(addprefix ft_ctype/, \
 			ft_isalnum.c \
 			ft_isalpha.c \
