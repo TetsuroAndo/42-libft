@@ -12,8 +12,10 @@
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
+ar			:= ar rc
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
+RM			:= rm -rf
 LIBFT_H		:= libft.h
 ROOT_DIR	:= .
 OUT_DIR		:= $(ROOT_DIR)/out
@@ -168,7 +170,7 @@ all: $(NAME)
 bonus: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $@ $^
+	$(AR) $@ $^
 
 $(OUT_DIR)/%.o: %.c $(LIBFT_H)
 	@mkdir -p $(@D)
@@ -185,10 +187,10 @@ else
 endif
 	
 clean:
-	rm -rf $(OUT_DIR)
+	$(RM) $(OUT_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_SO) a.out
+	$(RM) -f $(NAME) $(NAME_SO) a.out
 
 re: fclean all
 
