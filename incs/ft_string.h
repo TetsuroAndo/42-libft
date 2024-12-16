@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/11/21 03:13:42 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/16 15:35:06 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_memswap(void *m1, void *m2, size_t n);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strcspn(const char *s, const char *reject);
 char	*ft_strdup(const char *s1);
 char	*ft_strdup2(const char *s1);

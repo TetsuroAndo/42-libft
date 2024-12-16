@@ -83,6 +83,7 @@ SRCS 		:= \
 			ft_memswap.c \
 			ft_split.c \
 			ft_strchr.c \
+			ft_strcmp.c \
 			ft_strcspn.c \
 			ft_strdup.c \
 			ft_strdup2.c \
