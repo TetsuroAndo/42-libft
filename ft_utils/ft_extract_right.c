@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.h                                         :+:      :+:    :+:   */
+/*   ft_extract_right.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 18:39:55 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 18:07:23 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 18:04:00 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 18:05:59 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILS_H
-# define FT_UTILS_H
+#include "ft_string.h"
 
-# include <stddef.h>
+char	*ft_extract_right(const char *str, char delimiter)
+{
+	char	*pos;
 
-char	*ft_extract_left(const char *str, char delimiter);
-char	*ft_extract_right(const char *str, char delimiter);
-int		ft_max(int a, int b);
-int		ft_min(int a, int b);
-void	ft_swap(char *a, char *b);
-
-#endif
+	if (!str)
+		return (NULL);
+	pos = ft_strchr(str, delimiter);
+	if (!pos)
+		return (NULL);
+	return (ft_strdup(pos + 1));
+}
