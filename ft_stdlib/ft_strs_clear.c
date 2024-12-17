@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-void	ft_parray_clear(void *ptr)
+void	ft_strs_clear(void *ptr)
 {
 	char	**array;
 	size_t	i;
