@@ -12,7 +12,7 @@
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
-ar			:= ar rc
+AR			:= ar rc
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 RM			:= rm -rf
