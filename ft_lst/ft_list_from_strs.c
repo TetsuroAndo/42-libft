@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:29:42 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 21:23:27 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/17 23:25:26 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ t_list	*ft_list_from_strs(char **strs)
 	t_list	*list;
 	t_list	*new;
 
-	if (!strs)
+	if (!strs || !*strs)
 		return (NULL);
-	list = 0;
+	list = NULL;
 	while (*strs)
 	{
 		new = ft_create_elem(*strs);
 		if (!new)
-			return (ft_lstclear(&list, free), NULL);
-		new->next = list;
-		list = new;
+		{
+			ft_lstclear(&list, free);
+			return (NULL);
+		}
+		ft_lstadd_back(&list, new);
 		strs++;
 	}
 	return (list);
