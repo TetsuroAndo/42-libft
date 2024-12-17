@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstrs_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 03:22:15 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 22:35:12 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 22:14:34 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 22:35:54 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
 #include <stdio.h>
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putstrs_fd(char **strs, char *delimiter, int fd)
 {
-	int	count;
+	int		count;
+	int		i;
+	char	*str;
 
+	if (!strs || !delimiter)
+		return (0);
 	count = 0;
-	while (*s)
+	i = 0;
+	while (strs[i])
 	{
-		if (ft_putchar_fd(*s++, fd) == -1)
-			return (EOF);
-		count++;
+		if (i > 0)
+			count += ft_putstr_fd(delimiter, fd);
+		str = strs[i];
+		count += ft_putstr_fd(str, fd);
+		i++;
 	}
-	return (count);
+	ft_putchar('\n');
+	return (count + 1);
 }
