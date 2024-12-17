@@ -80,6 +80,7 @@ SRCS 		:= \
 			ft_ltoa.c \
 			ft_orealloc.c \
 			ft_oreallocf.c \
+			ft_parray_clear.c \
 			ft_qsort.c \
 			ft_strtol.c \
 			ft_strtoll.c \
