@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:58:53 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 20:29:42 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 20:29:42 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
+#include <stdlib.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
 {
-	if (f)
+	t_list	*current;
+	t_list	*tmp;
+
+	current = begin_list;
+	while (current)
 	{
-		while (lst != NULL)
-		{
-			f(lst->data);
-			lst = lst->next;
-		}
+		tmp = current->next;
+		(*free_fct)(current->data);
+		free(current);
+		current = tmp;
 	}
 }

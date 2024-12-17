@@ -36,7 +36,7 @@ char	**ft_list_to_parray(t_list *lst)
 	i = 0;
 	while (lst)
 	{
-		array[i] = ft_strdup((char *)lst->content);
+		array[i] = ft_strdup((char *)lst->data);
 		if (!array[i++])
 			return (ft_parray_clear(array), NULL);
 		lst = lst->next;

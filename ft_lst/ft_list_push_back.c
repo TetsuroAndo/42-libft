@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_list_push_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:58:53 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 20:28:43 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 20:28:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_create_elem(void *data);
+
+void	ft_list_push_back(t_list **begin_list, void *data)
 {
-	if (f)
+	t_list	*new;
+	t_list	*current;
+
+	new = ft_create_elem(data);
+	if (!new)
+		return ;
+	if (!*begin_list)
 	{
-		while (lst != NULL)
-		{
-			f(lst->data);
-			lst = lst->next;
-		}
+		*begin_list = new;
+		return ;
 	}
+	current = *begin_list;
+	while (current->next)
+		current = current->next;
+	current->next = new;
 }

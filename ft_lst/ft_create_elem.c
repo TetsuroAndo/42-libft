@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:58:53 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 20:28:43 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 20:28:43 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
+#include <stdlib.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_create_elem(void *data)
 {
-	if (f)
+	t_list	*elem;
+
+	elem = (t_list *)malloc(sizeof(t_list));
+	if (elem)
 	{
-		while (lst != NULL)
-		{
-			f(lst->data);
-			lst = lst->next;
-		}
+		elem->data = data;
+		elem->next = 0;
 	}
+	return (elem);
 }

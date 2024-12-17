@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:58:53 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 20:30:35 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 20:30:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_list_foreach_if(
+	t_list *begin_list, void (*f)(void *), void *data_ref, int (*cmp)())
 {
-	if (f)
+	t_list	*current;
+
+	current = begin_list;
+	while (current)
 	{
-		while (lst != NULL)
-		{
-			f(lst->data);
-			lst = lst->next;
-		}
+		if ((*cmp)(current->data, data_ref) == 0)
+			(*f)(current->data);
+		current = current->next;
 	}
 }

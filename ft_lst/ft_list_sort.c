@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_list_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:32 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 16:58:53 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 20:30:35 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 20:30:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
-	if (f)
+	t_list	*i;
+	t_list	*j;
+	void	*temp;
+
+	if (!begin_list || !*begin_list)
+		return ;
+	i = *begin_list;
+	while (i)
 	{
-		while (lst != NULL)
+		j = i->next;
+		while (j)
 		{
-			f(lst->data);
-			lst = lst->next;
+			if ((*cmp)(i->data, j->data) > 0)
+			{
+				temp = i->data;
+				i->data = j->data;
+				j->data = temp;
+			}
+			j = j->next;
 		}
+		i = i->next;
 	}
 }

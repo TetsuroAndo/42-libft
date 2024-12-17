@@ -1,4 +1,4 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/17 18:09:19 by teando           ###   ########.fr        #
+#    Updated: 2024/12/17 20:35:51 by teando           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
@@ -141,6 +141,23 @@ DEPS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.d))
 BONUS_SRC	:= \
 	$(addprefix $(ROOT_DIR)/, \
 		$(addprefix ft_lst/, \
+			ft_create_elem.c \
+			ft_list_at.c \
+			ft_list_clear.c \
+			ft_list_find.c \
+			ft_list_foreach.c \
+			ft_list_foreach_if.c \
+			ft_list_last.c \
+			ft_list_merge.c \
+			ft_list_push_back.c \
+			ft_list_push_front.c \
+			ft_list_push_strs.c \
+			ft_list_remove_if.c \
+			ft_list_reverse.c \
+			ft_list_reverse_fun.c \
+			ft_list_size.c \
+			ft_list_sort.c \
+			ft_list_to_parray.c \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
 			ft_lstclear.c \
@@ -150,6 +167,8 @@ BONUS_SRC	:= \
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
+			ft_sorted_list_insert.c \
+			ft_sorted_list_merge.c \
 		) \
 	)
 BONUS_OBJ = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.o))
