@@ -6,12 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 22:14:34 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 22:35:54 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/17 23:44:30 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
-#include <stdio.h>
 
 int	ft_putstrs_fd(char **strs, char *delimiter, int fd)
 {
@@ -31,6 +30,5 @@ int	ft_putstrs_fd(char **strs, char *delimiter, int fd)
 		count += ft_putstr_fd(str, fd);
 		i++;
 	}
-	ft_putchar('\n');
-	return (count + 1);
+	return (count);
 }
