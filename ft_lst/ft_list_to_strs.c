@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_to_parray.c                                :+:      :+:    :+:   */
+/*   ft_list_to_strs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:32:18 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 17:58:57 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/17 21:18:17 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_string.h"
 #include <stdlib.h>
 
-char	**ft_list_to_parray(t_list *lst)
+char	**ft_list_to_strs(t_list *lst)
 {
 	size_t	len;
 	size_t	i;
@@ -38,7 +38,7 @@ char	**ft_list_to_parray(t_list *lst)
 	{
 		array[i] = ft_strdup((char *)lst->data);
 		if (!array[i++])
-			return (ft_parray_clear(array), NULL);
+			return (ft_strs_clear(array), NULL);
 		lst = lst->next;
 	}
 	return (array);

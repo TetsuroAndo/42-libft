@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_list_reverse_fun.c                              :+:      :+:    :+:   */
@@ -6,16 +6,23 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:31:35 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 20:44:12 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/17 21:15:41 by teando           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_lst.h"
 
-static int ft_list_size_local(t_list *begin_list)
+typedef struct s_range
 {
-	int count;
-	t_list *cur;
+	int		size;
+	int		i;
+	int		j;
+}			t_range;
+
+static int	ft_list_size_local(t_list *begin_list)
+{
+	int		count;
+	t_list	*cur;
 
 	count = 0;
 	cur = begin_list;
@@ -27,30 +34,28 @@ static int ft_list_size_local(t_list *begin_list)
 	return (count);
 }
 
-void ft_list_reverse_fun(t_list *begin_list)
+void	ft_list_reverse_fun(t_list *begin_list)
 {
-	t_list *start;
-	t_list *end;
-	void *temp;
-	int size;
-	int i;
-	int j;
+	t_list	*start;
+	t_list	*end;
+	void	*temp;
+	t_range	range;
 
-	size = ft_list_size_local(begin_list);
-	i = 0;
-	while (i < size / 2)
+	range.size = ft_list_size_local(begin_list);
+	range.i = 0;
+	while (range.i < range.size / 2)
 	{
-		j = -1;
+		range.j = -1;
 		start = begin_list;
 		end = begin_list;
-		while (++j < i)
+		while (++range.j < range.i)
 			start = start->next;
-		j = -1;
-		while (++j < size - i - 1)
+		range.j = -1;
+		while (++range.j < range.size - range.i - 1)
 			end = end->next;
 		temp = start->data;
 		start->data = end->data;
 		end->data = temp;
-		i++;
+		range.i++;
 	}
 }

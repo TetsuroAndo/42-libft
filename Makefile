@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/17 20:35:51 by teando           ###   ########.fr        #
+#    Updated: 2024/12/17 21:29:58 by teando           ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
@@ -147,17 +147,17 @@ BONUS_SRC	:= \
 			ft_list_find.c \
 			ft_list_foreach.c \
 			ft_list_foreach_if.c \
+			ft_list_from_strs.c \
 			ft_list_last.c \
 			ft_list_merge.c \
 			ft_list_push_back.c \
 			ft_list_push_front.c \
-			ft_list_push_strs.c \
 			ft_list_remove_if.c \
 			ft_list_reverse.c \
 			ft_list_reverse_fun.c \
 			ft_list_size.c \
 			ft_list_sort.c \
-			ft_list_to_parray.c \
+			ft_list_to_strs.c \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
 			ft_lstclear.c \
@@ -173,11 +173,13 @@ BONUS_SRC	:= \
 	)
 BONUS_OBJ = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.o))
 BONUS_DEPS = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.d))
+OBJS += $(BONUS_OBJ)
+DEPS += $(BONUS_DEPS)
 
-ifeq ($(MAKECMDGOALS), bonus)
-	OBJS += $(BONUS_OBJ)
-	DEPS += $(BONUS_DEPS)
-endif
+# ifeq ($(MAKECMDGOALS), bonus)
+# 	OBJS += $(BONUS_OBJ)
+# 	DEPS += $(BONUS_DEPS)
+# endif
 
 IDFLAGS		:= -I$(INCS_DIR)
 
