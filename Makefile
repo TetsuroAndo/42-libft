@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/17 21:29:58 by teando           ###   ########.fr        #
+#    Updated: 2024/12/17 21:34:22 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LIBFT_H		:= libft.h
 ROOT_DIR	:= .
 OUT_DIR		:= $(ROOT_DIR)/out
 INCS_DIR	:= $(ROOT_DIR)/incs
+IDFLAGS		:= -I$(INCS_DIR)
 
 ifeq ($(UNAME_OS), Darwin)
 NAME_SO		:= libft.dylib
@@ -176,13 +177,6 @@ BONUS_DEPS = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.d))
 OBJS += $(BONUS_OBJ)
 DEPS += $(BONUS_DEPS)
 
-# ifeq ($(MAKECMDGOALS), bonus)
-# 	OBJS += $(BONUS_OBJ)
-# 	DEPS += $(BONUS_DEPS)
-# endif
-
-IDFLAGS		:= -I$(INCS_DIR)
-
 ifeq ($(DEBUG), 1)
 CFLAGS		+= -g
 else
@@ -190,8 +184,6 @@ CFLAGS		+= -O2
 endif
 
 all: $(NAME)
-
-bonus: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
