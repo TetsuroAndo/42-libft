@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_list_to_parray.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:20:50 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 18:00:34 by teando           ###   ########.fr       */
+/*   Created: 2024/12/17 16:32:18 by teando            #+#    #+#             */
+/*   Updated: 2024/12/17 17:58:57 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
-#include <stddef.h>
+#include "ft_stdlib.h"
+#include "ft_string.h"
 #include <stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	**ft_list_to_parray(t_list *lst)
 {
-	t_list	*new_list;
-	t_list	*new_node;
-	void	*new_content;
+	size_t	len;
+	size_t	i;
+	char	**array;
 
-	if (f == NULL || del == NULL)
+	if (!lst)
+	{
+		array = (char **)ft_calloc(sizeof(char *), 1);
+		if (!array)
+			return (NULL);
+		array[0] = NULL;
+		return (array);
+	}
+	len = ft_lstsize(lst);
+	array = (char **)ft_calloc(sizeof(char *), len + 1);
+	if (!array)
 		return (NULL);
-	new_list = NULL;
+	i = 0;
 	while (lst)
 	{
-		new_content = f(lst->content);
-		if (new_content == NULL)
-			return (ft_lstclear(&new_list, del), NULL);
-		new_node = ft_lstnew(new_content);
-		if (!new_node)
-		{
-			del(new_content);
-			ft_lstclear(&new_list, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_list, new_node);
+		array[i] = ft_strdup((char *)lst->content);
+		if (!array[i++])
+			return (ft_parray_clear(array), NULL);
 		lst = lst->next;
 	}
-	return (new_list);
+	return (array);
 }
