@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/18 20:03:08 by teando           ###   ########.fr        #
+#    Updated: 2024/12/19 02:17:20 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,6 +134,7 @@ SRCS 		:= \
 			ft_substr_r.c \
 			ft_max.c \
 			ft_min.c \
+			ft_strs_dup.c \
 			ft_swap.c \
 		) \
 		$(addprefix get_next_line/, \
