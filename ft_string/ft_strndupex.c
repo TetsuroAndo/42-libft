@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_find.c                                     :+:      :+:    :+:   */
+/*   ft_strndupex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 20:30:35 by teando            #+#    #+#             */
-/*   Updated: 2024/12/18 17:28:28 by teando           ###   ########.fr       */
+/*   Created: 2024/12/18 17:21:00 by teando            #+#    #+#             */
+/*   Updated: 2024/12/18 17:22:35 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_string.h"
+#include <stdlib.h>
 
-t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)(void *,
-			void *))
+char	*ft_strndupex(const char *s, size_t n)
 {
-	t_list	*current;
+	char	*r;
+	size_t	len;
 
-	current = begin_list;
-	while (current)
-	{
-		if ((*cmp)(current->data, data_ref) == 0)
-			return (current);
-		current = current->next;
-	}
-	return (0);
+	r = (char *)malloc((n + 1) * sizeof(char));
+	len = ft_strnlen(s, n);
+	if (!r)
+		return (NULL);
+	r[len] = '\0';
+	return (ft_memcpy(r, s, len));
 }

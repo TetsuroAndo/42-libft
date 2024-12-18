@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/17 23:44:59 by teando           ###   ########.fr        #
+#    Updated: 2024/12/18 17:27:12 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,7 @@ SRCS 		:= \
 			ft_strmapi.c \
 			ft_strncmp.c \
 			ft_strndup.c \
+			ft_strndupex.c \
 			ft_strnlen.c \
 			ft_strnstr.c \
 			ft_strpbrk.c \
@@ -138,6 +139,7 @@ SRCS 		:= \
 			get_next_line.c \
 		) \
 	)
+
 OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))
 DEPS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.d))
 
@@ -171,6 +173,7 @@ BONUS_SRC	:= \
 			ft_sorted_list_merge.c \
 		) \
 	)
+
 BONUS_OBJ = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.o))
 BONUS_DEPS = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.d))
 OBJS += $(BONUS_OBJ)

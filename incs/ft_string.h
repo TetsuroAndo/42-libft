@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/12/16 15:35:06 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:22:52 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strndup(const char *s1, size_t n);
+char	*ft_strndup(const char *s, size_t n);
+char	*ft_strndupex(const char *s, size_t n);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strpbrk(const char *s, const char *accept);

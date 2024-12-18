@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:31:35 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 21:02:35 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:28:49 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_list	*ft_create_elem(void *data);
 
-void	ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)(void *, void *))
+void	ft_sorted_list_insert(t_list **begin_list, void *data,
+		int (*cmp)(void *, void *))
 {
 	t_list	*current;
 	t_list	*prev;

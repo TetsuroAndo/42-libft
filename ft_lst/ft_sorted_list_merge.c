@@ -6,13 +6,14 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:31:35 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 21:02:34 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/18 17:28:54 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
 
-static void	insert_in_sorted(t_list **begin_list, t_list *node, int (*cmp)(void *, void *))
+static void	insert_in_sorted(t_list **begin_list, t_list *node,
+		int (*cmp)(void *, void *))
 {
 	t_list	*current;
 	t_list	*prev;
