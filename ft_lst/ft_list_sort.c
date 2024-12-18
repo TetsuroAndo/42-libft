@@ -12,7 +12,7 @@
 
 #include "ft_lst.h"
 
-void	ft_list_sort(t_list **begin_list, int (*cmp)())
+void	ft_list_sort(t_list **begin_list, int (*cmp)(void *, void *))
 {
 	t_list	*i;
 	t_list	*j;

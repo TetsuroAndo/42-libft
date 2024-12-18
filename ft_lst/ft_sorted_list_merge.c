@@ -12,7 +12,7 @@
 
 #include "ft_lst.h"
 
-static void	insert_in_sorted(t_list **begin_list, t_list *node, int (*cmp)())
+static void	insert_in_sorted(t_list **begin_list, t_list *node, int (*cmp)(void *, void *))
 {
 	t_list	*current;
 	t_list	*prev;
