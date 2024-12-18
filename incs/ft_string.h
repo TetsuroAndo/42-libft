@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/12/18 17:22:52 by teando           ###   ########.fr       */
+/*   Updated: 2024/12/18 20:03:29 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int		ft_strfunc(const char *s, int (*f)(int));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin2(char const *s1, char const *s2);
-char*	ft_strncpy(char *dst, const char *src, size_t len);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strndup(const char *s, size_t n);
 char	*ft_strndupex(const char *s, size_t n);
 size_t	ft_strnlen(const char *s, size_t maxlen);

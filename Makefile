@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/18 17:27:12 by teando           ###   ########.fr        #
+#    Updated: 2024/12/18 20:03:08 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,6 +112,7 @@ SRCS 		:= \
 			ft_strlen.c \
 			ft_strmapi.c \
 			ft_strncmp.c \
+			ft_strncpy.c \
 			ft_strndup.c \
 			ft_strndupex.c \
 			ft_strnlen.c \
