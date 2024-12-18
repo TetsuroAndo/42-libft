@@ -146,15 +146,12 @@ BONUS_SRC	:= \
 		$(addprefix ft_lst/, \
 			ft_create_elem.c \
 			ft_list_at.c \
-			ft_list_clear.c \
 			ft_list_find.c \
 			ft_list_foreach.c \
 			ft_list_foreach_if.c \
 			ft_list_from_strs.c \
 			ft_list_last.c \
 			ft_list_merge.c \
-			ft_list_push_back.c \
-			ft_list_push_front.c \
 			ft_list_remove_if.c \
 			ft_list_reverse.c \
 			ft_list_reverse_fun.c \
