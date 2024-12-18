@@ -18,8 +18,8 @@ char	*ft_strndup(const char *s, size_t n)
 	char	*r;
 	size_t	len;
 
+	r = (char *)malloc((n + 1) * sizeof(char));
 	len = ft_strnlen(s, n);
-	r = (char *)malloc((len + 1) * sizeof(char));
 	if (!r)
 		return (NULL);
 	r[len] = '\0';
