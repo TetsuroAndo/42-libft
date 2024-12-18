@@ -128,8 +128,8 @@ SRCS 		:= \
 			ft_strncasecmp.c\
 		) \
 		$(addprefix ft_utils/, \
-			ft_extract_left.c \
-			ft_extract_right.c \
+			ft_substr_l.c \
+			ft_substr_r.c \
 			ft_max.c \
 			ft_min.c \
 			ft_swap.c \

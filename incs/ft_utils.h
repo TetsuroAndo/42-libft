@@ -15,8 +15,8 @@
 
 # include <stddef.h>
 
-char	*ft_extract_left(const char *str, char delimiter);
-char	*ft_extract_right(const char *str, char delimiter);
+char	*ft_substr_r(const char *str, char delimiter);
+char	*ft_substr_l(const char *str, char delimiter);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 void	ft_swap(char *a, char *b);
