@@ -31,6 +31,8 @@ endif
 SRCS 		:= \
 	$(addprefix $(ROOT_DIR)/, \
 		$(addprefix ft_btree/, \
+			ft_btree_clear.c \
+			ft_btree_del_node.c \
 			ft_btree_apply_by_level.c \
 			ft_btree_apply_infix.c \
 			ft_btree_apply_prefix.c \

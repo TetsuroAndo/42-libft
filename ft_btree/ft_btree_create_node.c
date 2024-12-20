@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_btree.h"
-#include <stdlib.h>
 
-t_btree	*btree_create_node(void *item)
+t_btree	*ft_btree_create_node(void *item)
 {
 	t_btree	*node;
 
@@ -21,8 +20,20 @@ t_btree	*btree_create_node(void *item)
 	if (node)
 	{
 		node->item = item;
-		node->left = 0;
-		node->right = 0;
+		node->left = NULL;
+		node->right = NULL;
 	}
 	return (node);
+}
+
+t_btree *ftx_btree_create_node(void*item ,void *sys_info, void (*sys_exit)(void *))
+{
+	t_btree *node;
+
+    node = ft_btree_create_node(item);
+    if (!node)
+    {
+        sys_exit(sys_info);
+    }
+    return (node);
 }

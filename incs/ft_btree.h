@@ -12,6 +12,8 @@
 
 #ifndef FT_BTREE_H
 # define FT_BTREE_H
+#include <stdlib.h>
+#include <stddef.h>
 
 typedef struct s_btree
 {
@@ -20,16 +22,19 @@ typedef struct s_btree
 	void			*item;
 }					t_btree;
 
-t_btree				*btree_create_node(void *item);
-void				btree_apply_prefix(t_btree *root, void (*applyf)(void *));
-void				btree_apply_infix(t_btree *root, void (*applyf)(void *));
-void				btree_apply_suffix(t_btree *root, void (*applyf)(void *));
-void				btree_insert_data(t_btree **root, void *item,
+t_btree *ftx_btree_create_node(void*item ,void *sys_info, void (*sys_exit)(void *));
+void ft_btree_clear(t_btree **root, void (*del)(void *));
+void ft_btree_del_node(t_btree *node,void (*del)(void *));
+t_btree				*ft_btree_create_node(void *item);
+void				ft_btree_apply_prefix(t_btree *root, void (*applyf)(void *));
+void				ft_btree_apply_infix(t_btree *root, void (*applyf)(void *));
+void				ft_btree_apply_suffix(t_btree *root, void (*applyf)(void *));
+void				ft_btree_insert_data(t_btree **root, void *item,
 						int (*cmpf)(void *, void *));
-void				*btree_search_item(t_btree *root, void *data_ref,
+void				*ft_btree_search_item(t_btree *root, void *data_ref,
 						int (*cmpf)(void *, void *));
-int					btree_level_count(t_btree *root);
-void				btree_apply_by_level(t_btree *root,
+int					ft_btree_level_count(t_btree *root);
+void				ft_btree_apply_by_level(t_btree *root,
 						void (*applyf)(void *item, int current_level,
 							int is_first_elem));
 

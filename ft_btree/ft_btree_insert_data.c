@@ -12,20 +12,20 @@
 
 #include "ft_btree.h"
 
-t_btree	*btree_create_node(void *item);
+t_btree	*ft_btree_create_node(void *item);
 
-void	btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *,
+void	ft_btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *,
 			void *))
 {
 	if (!root)
 		return ;
 	if (*root == 0)
 	{
-		*root = btree_create_node(item);
+		*root = ft_btree_create_node(item);
 		return ;
 	}
 	if (cmpf(item, (*root)->item) < 0)
-		btree_insert_data(&((*root)->left), item, cmpf);
+		ft_btree_insert_data(&((*root)->left), item, cmpf);
 	else
-		btree_insert_data(&((*root)->right), item, cmpf);
+		ft_btree_insert_data(&((*root)->right), item, cmpf);
 }
