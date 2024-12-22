@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/19 02:17:20 by teando           ###   ########.fr        #
+#    Updated: 2024/12/23 03:56:14 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -167,6 +167,7 @@ BONUS_SRC	:= \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
 			ft_lstclear.c \
+			ft_lstdel_front.c \
 			ft_lstdelone.c \
 			ft_lstiter.c \
 			ft_lstlast.c \
