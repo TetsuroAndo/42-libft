@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/23 03:56:14 by teando           ###   ########.fr        #
+#    Updated: 2024/12/23 15:32:14 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,6 @@ SRCS 		:= \
 			ft_utoa.c \
 		) \
 		$(addprefix ft_string/, \
-			ft_count_words.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
@@ -132,6 +131,8 @@ SRCS 		:= \
 			ft_strncasecmp.c\
 		) \
 		$(addprefix ft_utils/, \
+			ft_count_strs.c \
+			ft_count_words.c \
 			ft_substr_l.c \
 			ft_substr_r.c \
 			ft_max.c \

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.h                                         :+:      :+:    :+:   */
+/*   ft_count_strs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 18:39:55 by teando            #+#    #+#             */
-/*   Updated: 2024/12/23 15:31:14 by teando           ###   ########.fr       */
+/*   Created: 2024/12/23 15:29:55 by teando            #+#    #+#             */
+/*   Updated: 2024/12/23 15:30:59 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILS_H
-# define FT_UTILS_H
+#include <stddef.h>
 
-# include <stddef.h>
+size_t	ft_count_strs(char **src)
+{
+	size_t	i;
 
-size_t	ft_count_strs(char **src);
-size_t	ft_count_words(char const *s, char c);
-char	*ft_substr_r(const char *str, char delimiter);
-char	*ft_substr_l(const char *str, char delimiter);
-int		ft_max(int a, int b);
-int		ft_min(int a, int b);
-char	**ft_strs_dup(char **ss);
-void	ft_swap(char *a, char *b);
-
-#endif
+	i = 0;
+	while (src && src[i])
+		i++;
+	return (i);
+}
