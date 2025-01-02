@@ -33,7 +33,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 char	*ft_strstr(const char *big, const char *little)
 {
-	size_t	little_len;
 
 	if (!*little)
 		return ((char *)big);
