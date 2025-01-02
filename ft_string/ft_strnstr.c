@@ -30,3 +30,20 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+
+char	*ft_strstr(const char *big, const char *little)
+{
+	size_t	little_len;
+
+	if (!*little)
+		return ((char *)big);
+	if (!*big)
+		return (NULL);
+	while (*big)
+	{
+		if (*big == *little && !ft_strcmp(big, little))
+			return ((char *)big);
+		big++;
+	}
+	return (NULL);
+}
