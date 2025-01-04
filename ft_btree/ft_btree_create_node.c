@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:30:47 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 08:23:09 by teando           ###   ########.fr       */
+/*   Updated: 2025/01/05 02:46:19 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ t_btree	*ft_btree_create_node(void *item)
 	return (node);
 }
 
-t_btree *ftx_btree_create_node(void*item ,void *sys_info, void (*sys_exit)(void *))
+t_btree	*ftx_btree_create_node(void *item, void *sys_info,
+		void (*sys_exit)(void *))
 {
-	t_btree *node;
+	t_btree	*node;
 
-    node = ft_btree_create_node(item);
-    if (!node)
-    {
-        sys_exit(sys_info);
-    }
-    return (node);
+	node = ft_btree_create_node(item);
+	if (!node)
+	{
+		sys_exit(sys_info);
+	}
+	return (node);
 }

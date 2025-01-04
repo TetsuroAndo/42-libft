@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 02:22:52 by teando            #+#    #+#             */
-/*   Updated: 2024/11/07 17:02:06 by teando           ###   ########.fr       */
+/*   Updated: 2025/01/05 02:46:11 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 char	*ft_strstr(const char *big, const char *little)
 {
-
 	if (!*little)
 		return ((char *)big);
 	if (!*big)
