@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2024/12/23 15:30:19 by teando           ###   ########.fr       */
+/*   Updated: 2025/02/21 22:09:38 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin2(char const *s1, char const *s2);
 char	*ft_strjoin_free(char const *s1, char const *s2);
+char	*ft_strjoin_free2(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);

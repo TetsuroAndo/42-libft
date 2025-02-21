@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2024/12/23 15:32:14 by teando           ###   ########.fr        #
+#    Updated: 2025/02/21 22:09:58 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,6 +109,7 @@ SRCS 		:= \
 			ft_strjoin.c \
 			ft_strjoin2.c \
 			ft_strjoin_free.c \
+			ft_strjoin_free2.c \
 			ft_strlcat.c \
 			ft_strlcpy.c \
 			ft_strlen.c \
