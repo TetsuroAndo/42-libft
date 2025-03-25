@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
@@ -6,14 +6,21 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:12:33 by teando            #+#    #+#             */
-/*   Updated: 2024/11/08 04:46:00 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/26 06:50:45 by teando           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_stdio.h"
+#include <stdio.h>
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int	cnt;
+
+	cnt = ft_putstr_fd(s, fd);
+	if (cnt == EOF)
+		return (EOF);
+	if (ft_putchar_fd('\n', fd) == EOF)
+		return (EOF);
+	return (cnt + 1);
 }
