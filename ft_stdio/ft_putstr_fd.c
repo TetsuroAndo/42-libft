@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 03:22:15 by teando            #+#    #+#             */
-/*   Updated: 2025/03/26 06:45:15 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/26 07:05:09 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -20,7 +20,7 @@ int	ft_putstr_fd(char *s, int fd)
 
 	if (!*s)
 		return (0);
-	count = write(fd, s++, ft_strlen(s));
+	count = write(fd, s, ft_strlen(s));
 	if (count == -1)
 		return (EOF);
 	return (count);

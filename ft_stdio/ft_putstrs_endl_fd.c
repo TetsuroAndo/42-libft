@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:38:31 by teando            #+#    #+#             */
-/*   Updated: 2025/03/26 06:49:09 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/26 07:05:17 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,8 +15,7 @@
 
 int	ft_putstrs_endl_fd(char **strs, char *delimiter, int fd)
 {
-	int		count;
-	char	*str;
+	int	count;
 
 	if (!strs || !delimiter)
 		return (0);
