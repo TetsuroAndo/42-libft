@@ -6,9 +6,11 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 06:59:24 by teando            #+#    #+#             */
-/*   Updated: 2025/03/26 06:59:24 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/26 07:01:18 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
+
+#include "ft_string.h"
 
 char	*ft_strstr(const char *big, const char *little)
 {
