@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2025/02/21 22:09:38 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/26 07:00:43 by teando           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
@@ -43,12 +43,12 @@ char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strndup(const char *s, size_t n);
 char	*ft_strndupex(const char *s, size_t n);
 size_t	ft_strnlen(const char *s, size_t maxlen);
-char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strpbrk(const char *s, const char *accept);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strrev(char *str);
 size_t	ft_strspn(const char *s, const char *accept);
+char	*ft_strstr(const char *big, const char *little);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 

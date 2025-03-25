@@ -1,4 +1,4 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/02/21 22:09:58 by teando           ###   ########.fr        #
+#    Updated: 2025/03/26 06:59:56 by teando           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
@@ -124,6 +124,7 @@ SRCS 		:= \
 			ft_strrchr.c \
 			ft_strrev.c \
 			ft_strspn.c \
+			ft_strstr.c \
 			ft_strtrim.c \
 			ft_substr.c \
 		) \
@@ -211,7 +212,7 @@ else
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(IDFLAGS)
 	gcc -nostartfiles -shared -o $(NAME_SO) $(OBJS)
 endif
-	
+
 clean:
 	$(RM) $(OUT_DIR)
 
