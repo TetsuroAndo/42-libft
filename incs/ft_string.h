@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 02:17:39 by teando            #+#    #+#             */
-/*   Updated: 2025/03/26 07:00:43 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/27 10:45:57 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -49,6 +49,9 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strrev(char *str);
 size_t	ft_strspn(const char *s, const char *accept);
 char	*ft_strstr(const char *big, const char *little);
+char	*ft_strtok(char *restrict s, const char *restrict sep);
+char	*ft_strtok_r(char *restrict s, const char *restrict sep,
+			char **restrict p);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 

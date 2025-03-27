@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/03/26 08:51:20 by teando           ###   ########.fr        #
+#    Updated: 2025/03/27 10:46:13 by teando           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -125,6 +125,8 @@ SRCS 		:= \
 			ft_strrev.c \
 			ft_strspn.c \
 			ft_strstr.c \
+			ft_strtok.c \
+			ft_strtok_r.c \
 			ft_strtrim.c \
 			ft_substr.c \
 		) \
