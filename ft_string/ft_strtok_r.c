@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 10:22:37 by teando            #+#    #+#             */
-/*   Updated: 2025/03/27 10:45:41 by teando           ###   ########.fr       */
+/*   Updated: 2025/03/27 10:47:21 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,7 +18,7 @@ char	*ft_strtok_r(char *restrict s, const char *restrict sep,
 	if (!s && !*p)
 		return (NULL);
 	if (!s)
-		printf("p: %s\n", s = *p);
+		s = *p;
 	s += ft_strspn(s, sep);
 	if (!*s)
 		return (*p = 0);
