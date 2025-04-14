@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/03/27 10:46:13 by teando           ###   ########.fr        #
+#    Updated: 2025/04/15 04:43:20 by teando           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -67,7 +67,7 @@ SRCS 		:= \
 			ft_putstr_fd.c \
 			ft_putstrs_endl_fd.c \
 			ft_putstrs_fd.c \
-			$(addprefix ft_printf/, \
+			$(addprefix ft_dprintf/, \
 				ft_dprintf.c \
 				ft_printf.c \
 				type_putbase.c \

@@ -6,13 +6,13 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 05:51:10 by teando            #+#    #+#             */
-/*   Updated: 2025/04/14 01:16:34 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/15 04:42:29 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 void	ft_swap(char **a, char **b)
 {
-	char	tmp;
+	char	*tmp;
 
 	tmp = *a;
 	*a = *b;
