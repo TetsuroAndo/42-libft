@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/04/15 04:43:20 by teando           ###   ########.fr        #
+#    Updated: 2025/04/16 09:41:02 by teando           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -51,6 +51,7 @@ SRCS 		:= \
 			ft_isdigit.c \
 			ft_isgraph.c \
 			ft_islower.c \
+			ft_ismetachr.c \
 			ft_isprint.c \
 			ft_ispunct.c \
 			ft_isspace.c \
