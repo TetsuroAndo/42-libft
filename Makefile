@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/04/16 22:04:06 by teando           ###   ########.fr        #
+#    Updated: 2025/04/17 08:28:17 by teando           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -43,9 +43,11 @@ SRCS 		:= \
 			ft_btree_search_item.c \
 		) \
 		$(addprefix ft_ctype/, \
+			ft_isalnum_under.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
+			ft_isbackslash.c \
 			ft_isblank.c \
 			ft_iscntrl.c \
 			ft_isdigit.c \
