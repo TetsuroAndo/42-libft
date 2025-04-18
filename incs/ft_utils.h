@@ -23,5 +23,6 @@ int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 char	**ft_strs_dup(char **ss);
 void	ft_swap(char **a, char **b);
+void	ft_swapint(int **a, int **b);
 
 #endif

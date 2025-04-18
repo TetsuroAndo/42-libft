@@ -148,6 +148,7 @@ SRCS 		:= \
 			ft_min.c \
 			ft_strs_dup.c \
 			ft_swap.c \
+			ft_swapint.c \
 		) \
 		$(addprefix get_next_line/, \
 			get_next_line.c \
