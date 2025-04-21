@@ -6,12 +6,13 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/04/17 08:28:17 by teando           ###   ########.fr        #
+#    Updated: 2025/04/21 13:31:29 by teando           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
+NAME_MAC	:= libft_mac.a
 AR			:= ar rc
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
@@ -19,6 +20,7 @@ RM			:= rm -rf
 LIBFT_H		:= libft.h
 ROOT_DIR	:= .
 OUT_DIR		:= $(ROOT_DIR)/out
+OUT_MAC_DIR	:= $(ROOT_DIR)/out_mac
 INCS_DIR	:= $(ROOT_DIR)/incs
 IDFLAGS		:= -I$(INCS_DIR)
 
@@ -154,10 +156,6 @@ SRCS 		:= \
 			get_next_line.c \
 		) \
 	)
-
-OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))
-DEPS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.d))
-
 BONUS_SRC	:= \
 	$(addprefix $(ROOT_DIR)/, \
 		$(addprefix ft_lst/, \
@@ -189,11 +187,19 @@ BONUS_SRC	:= \
 			ft_sorted_list_merge.c \
 		) \
 	)
+OBJS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.o))
+DEPS		:= $(addprefix $(OUT_DIR)/, $(SRCS:.c=.d))
+BONUS_OBJ	:= $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.o))
+BONUS_DEPS	:= $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.d))
+OBJS		+= $(BONUS_OBJ)
+DEPS		+= $(BONUS_DEPS)
 
-BONUS_OBJ = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.o))
-BONUS_DEPS = $(addprefix $(OUT_DIR)/, $(BONUS_SRC:.c=.d))
-OBJS += $(BONUS_OBJ)
-DEPS += $(BONUS_DEPS)
+OBJS_MAC	:= $(addprefix $(OUT_MAC_DIR)/, $(SRCS:.c=.o))
+DEPS_MAC	:= $(addprefix $(OUT_MAC_DIR)/, $(SRCS:.c=.d))
+BONUS_OBJ_MAC	:= $(addprefix $(OUT_MAC_DIR)/, $(BONUS_SRC:.c=.o))
+BONUS_DEPS_MAC	:= $(addprefix $(OUT_MAC_DIR)/, $(BONUS_SRC:.c=.d))
+OBJS_MAC	+= $(BONUS_OBJ_MAC)
+DEPS_MAC	+= $(BONUS_DEPS_MAC)
 
 ifeq ($(DEBUG), 1)
 CFLAGS		+= -g
@@ -201,14 +207,28 @@ else
 CFLAGS		+= -O2
 endif
 
-all: $(NAME)
+all:
+ifeq ($(UNAME_OS), Darwin)
+	@$(MAKE) platform_mac
+else
+	@$(MAKE) $(NAME)
+endif
+
+platform_mac: $(NAME_MAC)
 
 $(NAME): $(OBJS)
+	$(AR) $@ $^
+
+$(NAME_MAC): $(OBJS_MAC)
 	$(AR) $@ $^
 
 $(OUT_DIR)/%.o: %.c $(LIBFT_H)
 	@mkdir -p $(@D)
 	$(CC) -c $(CFLAGS) -fPIC -MMD -MP $(IDFLAGS) $< -o $@
+
+$(OUT_MAC_DIR)/%.o: %.c $(LIBFT_H)
+	@mkdir -p $(@D)
+	$(CC) -c $(CFLAGS) -fPIC -DPLATFORM_MAC -MMD -MP $(IDFLAGS) $< -o $@
 
 so: $(NAME_SO)
 
@@ -221,10 +241,10 @@ else
 endif
 
 clean:
-	$(RM) $(OUT_DIR)
+	$(RM) $(OUT_DIR) $(OUT_MAC_DIR)
 
 fclean: clean
-	$(RM) -f $(NAME) $(NAME_SO) a.out
+	$(RM) -f $(NAME) $(NAME_MAC) $(NAME_SO) a.out
 
 re: fclean all
 
@@ -234,6 +254,6 @@ norm: $(LIBFT_H) $(INCS_DIR) $(SRCS) $(BONUS_SRC)
 test: test.c
 	$(CC) -g -fsanitize=address $< -o $@ -I. -Wl,-rpath . -L. -lft -lm
 
--include $(DEPS)
+-include $(DEPS) $(DEPS_MAC)
 
-.PHONY: all clean fclean re bonus norm test
+.PHONY: all clean fclean fclean_all re bonus norm test platform_mac
