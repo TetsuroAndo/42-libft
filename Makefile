@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/04/21 13:31:29 by teando           ###   ########.fr        #
+#    Updated: 2025/04/23 15:31:39 by teando           ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 UNAME_OS	:= $(shell uname -s)
 NAME		:= libft.a
@@ -63,6 +63,32 @@ SRCS 		:= \
 			ft_isxdigit.c \
 			ft_tolower.c \
 			ft_toupper.c \
+		) \
+		$(addprefix ft_gc/, \
+			$(addprefix alloc/, \
+				ft_gc_calloc.c \
+				ft_gc_malloc.c \
+			) \
+			$(addprefix debug/, \
+				ft_gc_count_data.c \
+				ft_gc_dump.c \
+				ft_gc_free_info.c \
+			) \
+			$(addprefix lst/, \
+				ft_gc_clear.c \
+				ft_gc_destroy.c \
+				ft_gc_free_data.c \
+				ft_gc_free_nodes.c \
+				ft_gc_track.c \
+				ft_gc_untrack.c \
+			) \
+			$(addprefix string/, \
+				ft_strdup_gc.c \
+				ft_strjoin_gc.c \
+				ft_strtrim_gc.c \
+				ft_substr_gc.c \
+				str_n_cpy_gc.c \
+			) \
 		) \
 		$(addprefix ft_stdio/, \
 			ft_putchar_fd.c \
@@ -144,6 +170,7 @@ SRCS 		:= \
 		$(addprefix ft_utils/, \
 			ft_count_strs.c \
 			ft_count_words.c \
+			ft_isinset.c \
 			ft_substr_l.c \
 			ft_substr_r.c \
 			ft_max.c \
@@ -169,7 +196,6 @@ BONUS_SRC	:= \
 			ft_list_merge.c \
 			ft_list_remove_if.c \
 			ft_list_reverse.c \
-			ft_list_reverse_fun.c \
 			ft_list_size.c \
 			ft_list_sort.c \
 			ft_list_to_strs.c \
