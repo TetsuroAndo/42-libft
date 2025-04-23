@@ -6,12 +6,13 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:57:12 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 14:57:34 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 15:31:50 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gc.h"
 #include "ft_stdlib.h"
+#include <stdlib.h>
 
 void	*ft_gc_calloc(t_list *gc, size_t count, size_t size)
 {
