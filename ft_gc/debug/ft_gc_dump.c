@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_gc_dump.c                                       :+:      :+:    :+:   */
@@ -8,9 +8,10 @@
 /*   Created: 2025/04/23 15:06:48 by teando            #+#    #+#             */
 /*   Updated: 2025/04/23 15:46:37 by tomsato          ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_lst.h"
+#include "ft_stdio.h"
 #include <stdint.h>
 #include <unistd.h>
 
@@ -42,7 +43,7 @@ static int	put_hex_fd(uintptr_t n, int fd)
 	return (0);
 }
 
-void	ft_gc_debug(const t_list *gc, int fd)
+void	ft_gc_dump(const t_list *gc, int fd)
 {
 	size_t	idx;
 	t_list	*cur;
@@ -57,6 +58,7 @@ void	ft_gc_debug(const t_list *gc, int fd)
 	cur = gc->next;
 	while (cur)
 	{
+
 		if (write(fd, "[", 1) < 0 || put_hex_fd(idx++, fd) < 0 || write(fd,
 				"] node=0x", 9) < 0 || put_hex_fd((uintptr_t)cur, fd) < 0
 			|| write(fd, " data=0x", 8) < 0 || put_hex_fd((uintptr_t)cur->data,
