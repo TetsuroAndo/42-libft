@@ -6,12 +6,12 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:06:48 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 16:04:55 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 16:11:54 by teando           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_lst.h"
-#include <unistd.h>
+#include "ft_stdio.h"
 
 static void	put_hex_fd(unsigned long n, int fd)
 {
@@ -22,7 +22,7 @@ static void	put_hex_fd(unsigned long n, int fd)
 	i = 0;
 	if (n == 0)
 	{
-		write(fd, "0", 1);
+		ft_dprintf(fd, "0");
 		return ;
 	}
 	while (n)
@@ -31,7 +31,7 @@ static void	put_hex_fd(unsigned long n, int fd)
 		n /= 16;
 	}
 	while (i--)
-		write(fd, &buf[i], 1);
+		ft_dprintf(fd, &buf[i]);
 }
 
 void	ft_gc_dump(const t_list *gc, int fd)
@@ -42,19 +42,19 @@ void	ft_gc_dump(const t_list *gc, int fd)
 	idx = 0;
 	if (!gc)
 	{
-		write(fd, "(gc=NULL)\n", 10);
+		ft_dprintf(fd, "(gc=NULL)\n");
 		return ;
 	}
 	cur = gc->next;
 	while (cur)
 	{
-		write(fd, "[", 1);
+		ft_dprintf(fd, "[");
 		put_hex_fd(idx++, fd);
-		write(fd, "] node=0x", 9);
+		ft_dprintf(fd, "] node=0x");
 		put_hex_fd((unsigned long)cur, fd);
-		write(fd, " data=0x", 8);
+		ft_dprintf(fd, " data=0x");
 		put_hex_fd((unsigned long)cur->data, fd);
-		write(fd, "\n", 1);
+		ft_dprintf(fd, "\n");
 		cur = cur->next;
 	}
 }
