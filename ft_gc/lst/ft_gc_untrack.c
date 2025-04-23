@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_gc_untrack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:06:09 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 14:49:09 by teando           ###   ########.fr       */
+/*   Created: 2025/04/23 14:59:17 by teando            #+#    #+#             */
+/*   Updated: 2025/04/23 15:00:33 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
+#include <stdlib.h>
 
-size_t	ft_lstsize(t_list *lst)
+int	ft_gc_untrack(t_list *gc, void *p)
 {
-	size_t	count;
+	t_list	*cur;
+	t_list	*prev;
 
-	count = 0;
-	while (lst)
+	if (!gc || !p)
+		return (-1);
+	prev = gc;
+	cur = gc->next;
+	while (cur)
 	{
-		++count;
-		lst = lst->next;
+		if (cur->data == p)
+		{
+			prev->next = cur->next;
+			free(cur);
+			return (0);
+		}
+		prev = cur;
+		cur = cur->next;
 	}
-	return (count);
+	return (-1);
 }

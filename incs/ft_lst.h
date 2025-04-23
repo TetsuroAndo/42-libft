@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 20:39:44 by teando            #+#    #+#             */
-/*   Updated: 2024/12/23 04:04:25 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 15:12:19 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void				ft_list_merge(t_list **begin_list1, t_list *begin_list2);
 void				ft_list_remove_if(t_list **begin_list, void *data_ref,
 						int (*cmp)(void *, void *), void (*free_fct)(void *));
 void				ft_list_reverse(t_list **begin_list);
-void				ft_list_reverse_fun(t_list *begin_list);
 int					ft_list_size(t_list *begin_list);
 void				ft_list_sort(t_list **begin_list, int (*cmp)(void *,
 							void *));
@@ -49,7 +48,7 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 t_list				*ft_lstnew(void *content);
-int					ft_lstsize(t_list *lst);
+size_t				ft_lstsize(t_list *lst);
 void				ft_sorted_list_insert(t_list **begin_list, void *data,
 						int (*cmp)(void *, void *));
 void				ft_sorted_list_merge(t_list **begin_list1,

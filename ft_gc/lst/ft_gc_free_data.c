@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_gc_free_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:06:09 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 14:49:09 by teando           ###   ########.fr       */
+/*   Created: 2025/04/23 15:04:42 by teando            #+#    #+#             */
+/*   Updated: 2025/04/23 15:05:49 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
+#include <stdlib.h>
 
-size_t	ft_lstsize(t_list *lst)
+void	ft_gc_free_data(t_list *gc)
 {
-	size_t	count;
+	t_list	*cur;
 
-	count = 0;
-	while (lst)
+	if (!gc)
+		return ;
+	cur = gc->next;
+	while (cur)
 	{
-		++count;
-		lst = lst->next;
+		if (cur->data)
+		{
+			free(cur->data);
+			cur->data = NULL;
+		}
+		cur = cur->next;
 	}
-	return (count);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_gc_destroy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:06:09 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 14:49:09 by teando           ###   ########.fr       */
+/*   Created: 2025/04/23 15:04:45 by teando            #+#    #+#             */
+/*   Updated: 2025/04/23 15:05:05 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
+#include <stdlib.h>
 
-size_t	ft_lstsize(t_list *lst)
+void	ft_gc_destroy(t_list **gc)
 {
-	size_t	count;
-
-	count = 0;
-	while (lst)
-	{
-		++count;
-		lst = lst->next;
-	}
-	return (count);
+	if (!gc || !*gc)
+		return ;
+	ft_gc_clear(*gc);
+	free(*gc);
+	*gc = NULL;
 }

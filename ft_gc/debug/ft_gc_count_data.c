@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_gc_count_data.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 06:06:09 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 14:49:09 by teando           ###   ########.fr       */
+/*   Created: 2025/04/23 15:06:08 by teando            #+#    #+#             */
+/*   Updated: 2025/04/23 15:06:33 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_gc.h"
 #include "ft_lst.h"
 
-size_t	ft_lstsize(t_list *lst)
+size_t	ft_gc_count(const t_list *gc)
 {
 	size_t	count;
+	t_list	*cur;
 
+	if (!gc)
+		return (0);
 	count = 0;
-	while (lst)
+	cur = gc->next;
+	while (cur)
 	{
-		++count;
-		lst = lst->next;
+		if (cur->data)
+			++count;
+		cur = cur->next;
 	}
 	return (count);
 }
