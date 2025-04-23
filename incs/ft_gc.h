@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:09:10 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 17:45:11 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 19:25:31 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_gc_untrack(t_list *gc, void *ptr);
 void	*ft_gc_malloc(t_list *gc, size_t size);
 void	*ft_gc_calloc(t_list *gc, size_t count, size_t size);
 
+void	ft_gc_free(t_list *gc, void **ptr);
 void	ft_gc_free_data(t_list *gc);
 void	ft_gc_free_nodes(t_list *gc);
 void	ft_gc_clear(t_list *gc);
