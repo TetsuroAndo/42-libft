@@ -3,35 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gc_dump.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: tomsato <tomsato@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:06:48 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 15:26:08 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 15:46:37 by tomsato          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
+#include <stdint.h>
 #include <unistd.h>
 
-static void	put_hex_fd(unsigned long n, int fd)
+static int	put_hex_fd(uintptr_t n, int fd)
 {
 	const char	hex[17] = "0123456789abcdef";
-	char		buf[sizeof(unsigned long) * 2 + 1];
+	char		buf[sizeof(uintptr_t) * 2 + 1];
 	int			i;
+	ssize_t		ret;
 
 	i = 0;
 	if (n == 0)
 	{
-		write(fd, "0", 1);
-		return ;
+		if (write(fd, "0", 1) < 0)
+			return (-1);
+		return (0);
 	}
-	while (n)
+	while (n && i < (int)(sizeof(buf) - 1))
 	{
 		buf[i++] = hex[n % 16];
 		n /= 16;
 	}
 	while (i--)
-		write(fd, &buf[i], 1);
+	{
+		ret = write(fd, &buf[i], 1);
+		if (ret < 0)
+			return (-1);
+	}
+	return (0);
 }
 
 void	ft_gc_debug(const t_list *gc, int fd)
@@ -42,19 +50,18 @@ void	ft_gc_debug(const t_list *gc, int fd)
 	idx = 0;
 	if (!gc)
 	{
-		write(fd, "(gc=NULL)\n", 10);
+		if (write(fd, "(gc=NULL)\n", 10) < 0)
+			return ;
 		return ;
 	}
 	cur = gc->next;
 	while (cur)
 	{
-		write(fd, "[", 1);
-		put_hex_fd(idx++, fd);
-		write(fd, "] node=0x", 9);
-		put_hex_fd((unsigned long)cur, fd);
-		write(fd, " data=0x", 8);
-		put_hex_fd((unsigned long)cur->data, fd);
-		write(fd, "\n", 1);
+		if (write(fd, "[", 1) < 0 || put_hex_fd(idx++, fd) < 0 || write(fd,
+				"] node=0x", 9) < 0 || put_hex_fd((uintptr_t)cur, fd) < 0
+			|| write(fd, " data=0x", 8) < 0 || put_hex_fd((uintptr_t)cur->data,
+				fd) < 0 || write(fd, "\n", 1) < 0)
+			return ;
 		cur = cur->next;
 	}
 }
