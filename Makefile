@@ -6,7 +6,7 @@
 #    By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 18:09:17 by teando            #+#    #+#              #
-#    Updated: 2025/04/23 15:31:39 by teando           ###   ########.fr        #
+#    Updated: 2025/04/23 17:45:31 by teando           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRCS 		:= \
 				ft_gc_destroy.c \
 				ft_gc_free_data.c \
 				ft_gc_free_nodes.c \
+				ft_gc_init.c \
 				ft_gc_track.c \
 				ft_gc_untrack.c \
 			) \

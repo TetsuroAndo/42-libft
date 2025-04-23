@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:09:10 by teando            #+#    #+#             */
-/*   Updated: 2025/04/23 15:12:31 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/23 17:45:11 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "ft_lst.h"
 # include <stddef.h>
+
+t_list	*ft_gc_init(void);
 
 int		ft_gc_track(t_list *gc, void *ptr);
 int		ft_gc_untrack(t_list *gc, void *ptr);
