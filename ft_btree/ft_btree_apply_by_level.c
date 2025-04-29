@@ -6,19 +6,12 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:29:26 by teando            #+#    #+#             */
-/*   Updated: 2024/12/17 08:22:54 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/29 20:06:34 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_btree.h"
 #include <stdlib.h>
-
-typedef struct s_queue
-{
-	t_btree			*node;
-	int				level;
-	struct s_queue	*next;
-}					t_queue;
 
 static void	enqueue(t_queue **begin, t_btree *node, int level)
 {

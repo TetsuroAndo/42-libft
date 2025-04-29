@@ -6,7 +6,20 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 05:53:45 by teando            #+#    #+#             */
-/*   Updated: 2024/12/09 08:59:44 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/29 20:10:35 by teando           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_qsort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: <you>                                        +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/29 20:47:00 by <you>             #+#    #+#             */
+/*   Updated: 2025/04/29 20:47:00 by <you>            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +47,39 @@ static void	qsort_swap(void *x, void *y, size_t size)
 	}
 }
 
-static void	*median_of_three(char *a, char *b, char *c,
-		int (*compar)(const void *, const void *))
+static void	*median_of_three(char *a, char *b, char *c, int (*cmp)(const void *,
+			const void *))
 {
-	if (compar(a, b) < 0)
+	if (cmp(a, b) < 0)
 	{
-		if (compar(b, c) < 0)
+		if (cmp(b, c) < 0)
 			return (b);
-		else if (compar(a, c) < 0)
+		if (cmp(a, c) < 0)
 			return (c);
-		else
-			return (a);
+		return (a);
 	}
-	else
-	{
-		if (compar(b, c) > 0)
-			return (b);
-		else if (compar(a, c) < 0)
-			return (a);
-		else
-			return (c);
-	}
+	if (cmp(b, c) > 0)
+		return (b);
+	if (cmp(a, c) < 0)
+		return (a);
+	return (c);
 }
 
 static size_t	part_loop(char *base, size_t nmemb, size_t size,
-		int (*compar)(const void *, const void *), char *pivot)
+		int (*cmp)(const void *, const void *))
 {
 	size_t	i;
 	size_t	j;
+	char	*pivot;
 
+	pivot = base;
 	i = 1;
 	j = nmemb - 1;
 	while (1)
 	{
-		while (i < nmemb && compar(base + i * size, pivot) < 0)
+		while (i < nmemb && cmp(base + i * size, pivot) < 0)
 			i++;
-		while (j > 0 && compar(base + j * size, pivot) > 0)
+		while (j > 0 && cmp(base + j * size, pivot) > 0)
 			j--;
 		if (i >= j)
 			break ;
@@ -82,19 +92,18 @@ static size_t	part_loop(char *base, size_t nmemb, size_t size,
 }
 
 static size_t	partition(char *base, size_t nmemb, size_t size,
-		int (*compar)(const void *, const void *))
+		int (*cmp)(const void *, const void *))
 {
 	char	*pivot;
 
 	pivot = median_of_three(base, base + (nmemb / 2) * size, base + (nmemb - 1)
-			* size, compar);
+			* size, cmp);
 	qsort_swap(base, pivot, size);
-	pivot = base;
-	return (part_loop(base, nmemb, size, compar, pivot));
+	return (part_loop(base, nmemb, size, cmp));
 }
 
-void	ft_qsort(void *base, size_t nmemb, size_t size,
-		int (*compar)(const void *, const void *))
+void	ft_qsort(void *base, size_t nmemb, size_t size, int (*cmp)(const void *,
+			const void *))
 {
 	size_t	p;
 	char	*arr;
@@ -102,8 +111,8 @@ void	ft_qsort(void *base, size_t nmemb, size_t size,
 	if (nmemb <= 1 || size == 0)
 		return ;
 	arr = (char *)base;
-	p = partition(arr, nmemb, size, compar);
+	p = partition(arr, nmemb, size, cmp);
 	if (p > 0)
-		ft_qsort(arr, p, size, compar);
-	ft_qsort(arr + (p + 1) * size, nmemb - p - 1, size, compar);
+		ft_qsort(arr, p, size, cmp);
+	ft_qsort(arr + (p + 1) * size, nmemb - p - 1, size, cmp);
 }

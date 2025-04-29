@@ -6,7 +6,7 @@
 /*   By: teando <teando@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 08:28:26 by teando            #+#    #+#             */
-/*   Updated: 2025/01/05 02:45:58 by teando           ###   ########.fr       */
+/*   Updated: 2025/04/29 20:06:45 by teando           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct s_btree
 	struct s_btree	*right;
 	void			*item;
 }					t_btree;
+
+typedef struct s_queue
+{
+	t_btree			*node;
+	int				level;
+	struct s_queue	*next;
+}					t_queue;
 
 t_btree				*ftx_btree_create_node(void *item, void *sys_info,
 						void (*sys_exit)(void *));
